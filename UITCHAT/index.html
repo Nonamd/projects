@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+  <!--FIREBASE -->
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+  <!-- JQUERY -->    
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    
+ <!-- BOOTSTRAP -->
+ <!-- links to include BOOTSTRAP to your project-->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-modal.min.js"></script>
+
+  <!--CSS -->
+    <link rel='stylesheet' type='text/css' href='css/style.css'>
+  </head>
+  <body>
+    <div class= "container">
+      <div class="row">
+          <div class="col-xs-3 visit">
+            <input type='text' id='nameInput' placeholder='Ainm'>
+          </div>
+      <div class="col-xs-9">
+          <div id='messagesDiv' class="messages"></div>
+              <input type='text' id='messageInput' class="InputBox" placeholder='teachdaireachd'>    
+          </div>
+        </div>
+      </div>
+    <script>
+      var myDataRef = new Firebase('https://cabadaich.firebaseio.com/');
+      $('#messageInput').keypress(function (e) {
+        if (e.keyCode == 13) {
+          var name = $('#nameInput').val();
+          var text = $('#messageInput').val();
+          myDataRef.push({name: name, text: text});
+          $('#messageInput').val('');
+        }
+      });
+      myDataRef.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+        displayChatMessage(message.name, message.text);
+      });
+      function displayChatMessage(name, text) {
+        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      };
+    </script>
+  </body>
+</html>

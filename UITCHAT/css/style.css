@@ -1,0 +1,14 @@
+.visit{
+	background-color: #1F38B8;
+	height: 435px;
+	color: #white;
+}
+.InputBox{
+	width: 100%;
+	height: 40px;
+	vertical-align: bottom;
+}
+.messages{
+	height: 390px;
+	overflow: auto;
+}
