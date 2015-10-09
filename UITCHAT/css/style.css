@@ -5,10 +5,18 @@
 }
 .InputBox{
 	width: 100%;
-	height: 40px;
+	height: 90px;
 	vertical-align: bottom;
 }
 .messages{
 	height: 390px;
 	overflow: auto;
+}
+.modal {
+    position: relative !important;
+    margin-left: 30% !important;
+    right-padding: 100px;
+    margin-top: -400px !important;
+    background-color: transparent;
+    width: 50% !important;
 }
