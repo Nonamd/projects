@@ -1,16 +1,22 @@
 .visit{
-	background-color: #1F38B8;
+	background-color: #556981;
+	width:300px;
+    float:left; 
 	height: 435px;
 	color: #white;
+	font-family:'celticmd';
+	font-size: 150%;	
+	padding-top: 12px;
 }
 .InputBox{
 	width: 100%;
-	height: 90px;
-	vertical-align: bottom;
+	height: 110	px;
+	vertical-align: bottom;	
 }
 .messages{
 	height: 390px;
 	overflow: auto;
+	border-color: #62B2B1;
 }
 .modal {
     position: relative !important;
@@ -19,4 +25,46 @@
     margin-top: -400px !important;
     background-color: transparent;
     width: 50% !important;
+}
+.btn-warning {
+	border-color: #000000;
+	background-color: #246F6A;	
+}
+
+.green{
+	border-color: #000000;
+	background-color: #246F6A
+}
+
+.jumbotron{
+	background-color:#A5B06E;
+	font-color:#EBE9D2;
+	text-align:center;
+	font-family:'celticmd';
+	font-size: 250%;
+	margin-bottom: 0px !important;
+}
+
+.jumbotronwidth
+{
+	max-width:100%;
+}
+
+.h1 {
+  font-family:'celticmd','gaelic', sans-serif;
+  font-color: #EBE9D2;
+  font-size:90%;
+}
+
+.h2 {
+  font: 400 130px/0.8 'Great Vibes', Helvetica, sans-serif;
+  font-color: #EBE9D2;
+  text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
+}
+
+.h3 {
+  font-family:'celticmd','gaelic', sans-serif;
+  color: #09347C;
+  font-size:500%;
+  text-shadow: 4px 4px 3px rgba(0,0,0,0.1)
 }

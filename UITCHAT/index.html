@@ -16,29 +16,51 @@
 <!--Fontawesome info -->  
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
+
+
   <!--CSS -->
     <link rel='stylesheet' type='text/css' href='css/style.css'>
+    <div class-"container">
+      <div class="jumbotron">
+        <!-- <h1> f&#224ilte gu</h1>    
+        <h1> Cabadaich</h1> -->
+            <a href="#" data-toggle="tooltip" title="Welcome to Gaelic Chat!">f&#224ilte gu</br> Cabadaich</a>
+      <!-- <a href=src
+          <!--<a href="http://fontmeme.com/celtic-fonts/"><img src="http://fontmeme.com/embed.php?text=f%E0ilte%20gu&name=    KellsFLF.ttf&size=50&style_color=09347C" alt="Celtic Fonts">
+        </a></p>
+        <p><a href="http://fontmeme.com/celtic-fonts/"><img src="http://fontmeme.com/embed.php?text=Cabadaich%20&name=   KellsFLF.ttf&size=100&style_color=09347C" alt="Celtic Fonts">
+        </a></p> -->
+            <p><a id="login" class="btn btn-primary btn-lg " href="#" role="button">cl&#224raich a-steach</a>
+            <a id="logout" button type="button" class="btn btn-warning" onclick=logout()>cl&#224raich a-mach</button>
+          </a>
+        </p>
+      </div>
+    </div>
   </head>
   <body>
-    <div class= "container">
+
+
+<!--<div class="container">
+  <h3>Tooltip Example</h3>
+  <a href="#" data-toggle="tooltip" title="Hooray!">Hover over me</a>
+</div> -->
+
+    <div class= "container-fluid">
       <div class="row">
-          <div class="col-xs-2 visit">
+          <div class="col-xs-4 visit">
             <p>Channels</p>
           </div>
-      <div class="col-xs-10">
+      <div class="col-xs-8">
         <div class="row">
           <div class="col-xs-10">
               <div id='messagesDiv' class="messages"></div>
           </div>
-          <div class="col-xs-2">
-              <button type="button" class="btn btn-warning" onclick=logout()>Logout</button>
-          </div>
         </div>
 
               <input type='text' id='messageInput' class="InputBox" placeholder='teachdaireachd'>    
-          </div>
         </div>
       </div>
+    </div>
 
       <!--<div><a href="javascript:logout();">Logout</a></div> -->
 
@@ -81,22 +103,28 @@
     <script>
       var myDataRef = new Firebase('https://cabadaich.firebaseio.com/');
       var name= "";
-      var authModal = $('#auth-modal').modal( {show: false}); //this cluase hides the modal unless the user tries to enter a message without being logged in//
+      var authModal = $('#auth-modal').modal( {show: false}); //this cluase hides the modal unless 
+      //the user tries to enter a message without being logged in//
       
+
       // Create a callback which logs the current auth state
       function authDataCallback(authData) {
         if (authData) {
           console.log("User " + authData.uid + " is logged in with " + authData.provider);
           var userId = authData.id
           name = authData[authData.provider].displayName;
-        } else {
+          $("#login").hide(); 
+          $("#logout").show(); 
+        }
+        else {
+          $("#login").show(); 
+          $("#logout").hide(); 
           console.log("User is logged out");
         }
       }
 
       // Register the callback to be fired every time auth state changes
       myDataRef.onAuth(authDataCallback);
-
 
       $('#messageInput').keypress(function (e) {
         if (e.keyCode == 13) {
@@ -123,6 +151,7 @@
         }
       });
       }
+          
 
       function logout() {
         console.log("logging out");
