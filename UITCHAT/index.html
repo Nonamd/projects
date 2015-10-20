@@ -24,7 +24,7 @@
       <div class="jumbotron">
         <!-- <h1> f&#224ilte gu</h1>    
         <h1> Cabadaich</h1> -->
-            <a href="#" data-toggle="tooltip" title="Welcome to Gaelic Chat!">f&#224ilte gu</br> Cabadaich</a>
+            <a href="#" data-toggle="tooltip" data-placement="right" title="Welcome to Gaelic Chat!"><font color="#EEFCFC">f&#224ilte gu</font></br> <font color="#09347C">Cabadaich</font></a>
       <!-- <a href=src
           <!--<a href="http://fontmeme.com/celtic-fonts/"><img src="http://fontmeme.com/embed.php?text=f%E0ilte%20gu&name=    KellsFLF.ttf&size=50&style_color=09347C" alt="Celtic Fonts">
         </a></p>
@@ -48,12 +48,13 @@
     <div class= "container-fluid">
       <div class="row">
           <div class="col-xs-4 visit">
-            <p>Channels</p>
+            <p>Modh Conaltraidh</p>
           </div>
       <div class="col-xs-8">
         <div class="row">
           <div class="col-xs-10">
               <div id='messagesDiv' class="messages"></div>
+              <a href="#" data-toggle="tooltip" title="Write a message here!">teachdaireachd'</a>
           </div>
         </div>
 
@@ -105,20 +106,24 @@
       var name= "";
       var authModal = $('#auth-modal').modal( {show: false}); //this cluase hides the modal unless 
       //the user tries to enter a message without being logged in//
-      
+      //check to see if the user is logged in using getAuth fx
 
       // Create a callback which logs the current auth state
+      var authData = myDataRef.getAuth();
+      
       function authDataCallback(authData) {
         if (authData) {
           console.log("User " + authData.uid + " is logged in with " + authData.provider);
-          var userId = authData.id
+          var userId = authData.uid
           name = authData[authData.provider].displayName;
-          $("#login").hide(); 
-          $("#logout").show(); 
+          myDataRef.child('user').child(userId).push({id: userId, name:name});
+         $("#login").hide(); 
+         $("#logout").show(); 
         }
         else {
-          $("#login").show(); 
-          $("#logout").hide(); 
+         $("#login").show(); 
+         $("#logout").hide(); 
+          
           console.log("User is logged out");
         }
       }
@@ -134,7 +139,7 @@
           } else { //don't allow submit unless there is a name!
             //var name = $('#nameInput').val();
             var text = $('#messageInput').val();
-            myDataRef.push({name: name, text: text});
+            myDataRef.child('messages').push({name: name, text: text});
             $('#messageInput').val('');
           }
         }
@@ -159,7 +164,7 @@
         location.reload();
       }
 
-      myDataRef.on('child_added', function(snapshot) {
+      myDataRef.child('messages').on('child_added', function(snapshot) {
         var message = snapshot.val();
         displayChatMessage(message.name, message.text);
       });

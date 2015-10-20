@@ -3,8 +3,8 @@
 	width:300px;
     float:left; 
 	height: 435px;
-	color: #white;
-	font-family:'celticmd';
+	color: #DFFDF3;
+	font-family:'Nanum Gothic', Helvetica, Verdana;
 	font-size: 150%;	
 	padding-top: 12px;
 }
@@ -17,6 +17,7 @@
 	height: 390px;
 	overflow: auto;
 	border-color: #62B2B1;
+	font-family: 'Nanum Gothic', Helvetica, Verdana;
 }
 .modal {
     position: relative !important;
@@ -28,7 +29,8 @@
 }
 .btn-warning {
 	border-color: #000000;
-	background-color: #246F6A;	
+	background-color: #246F6A;
+	font-family:'Nanum Gothic', Helvetica, Verdana;
 }
 
 .green{
@@ -38,11 +40,15 @@
 
 .jumbotron{
 	background-color:#A5B06E;
-	font-color:#EBE9D2;
+	font-color:#050900;
 	text-align:center;
 	font-family:'celticmd';
-	font-size: 250%;
+	font-size: 390%;
+	height:260px;
+	margin-top: 0px !important;
 	margin-bottom: 0px !important;
+	padding-top: 20px !important;
+	padding-bottom: 20px !important;
 }
 
 .jumbotronwidth
@@ -57,13 +63,13 @@
 }
 
 .h2 {
-  font: 400 130px/0.8 'Great Vibes', Helvetica, sans-serif;
+  font: 400 130px/0.8 'Nanum Gothic', Helvetica, Verdana;
   font-color: #EBE9D2;
   text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
 }
 
 .h3 {
-  font-family:'celticmd','gaelic', sans-serif;
+  font-family: 'Nanum Gothic', Helvetica, Verdana;
   color: #09347C;
   font-size:500%;
   text-shadow: 4px 4px 3px rgba(0,0,0,0.1)
