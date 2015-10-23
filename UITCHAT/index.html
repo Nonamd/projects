@@ -5,6 +5,7 @@
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
   <!-- JQUERY -->    
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="sha256.js"></script>
 
     
  <!-- BOOTSTRAP -->
@@ -39,16 +40,100 @@
   </head>
   <body>
 
+<div class="main-chat-login">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+            <input type="text" class="btn-celticCustom" id="email" value="" placeholder="Your e-mail address" />
+        </div>
+        <div class="col-sm-12">
+          <input type="text" class="btn-celticCustom" id="password" value="" placeholder="Your password" />
+        </div>
+        <div class="col-sm-12">
+          <button type="button" class="btn-celticCustom2" id="login-button">Login</button>
+        </div>
+        <div class="col-sm-12">
+          <button type="button" class="btn-celticCustom3" id="register-display-button">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-chat-register">
+    <div class="container">
+      <h1>This is the register window</h1>
+
+      <div class="row">
+        <div class="col-sm-12">
+            <input type="text" class="btn-celticCustom" id="register-name" value="" placeholder="Your Name" />
+        </div>
+        <div class="col-sm-12">
+            <input type="text" class="btn-block" id="register-email" value="" placeholder="Your e-mail address" />
+        </div>
+        <div class="col-sm-12">
+          <input type="text" class="btn-block" id="register-password" value="" placeholder="Your password" />
+        </div>
+        <div class="col-sm-12">
+          <label>Photo</label>
+          <input type="file" id="photo" />
+        </div>
+        <div class="col-sm-12">
+          <button type="button" class="btn btn-block btn-primary" id="register-button">Register</button>
+        </div>
+        <div class="col-sm-12">
+          <button type="button" class="btn btn-block btn-danger" id="login-window-button">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-chat-display">
+    <h1><img src="" id="displayphoto" style="height: 200px;width: 200px;" /> <span id="displayname"></span></h1>
+    <div class="container">
+      <div class="row">
+          <div class="col-sm-12" style="background: #ff0;"><p style="text-align:center;">This is a big row!</p></div>
+
+          <div class="col-sm-3" style="background: #f0f;min-height: 300px;">
+            <p>This is my sidebar!</p>
+          </div>
+          <div class="col-sm-9" style="background: #00F;min-height: 300px;">
+
+            <div class="row">
+              <div class="col-sm-12" style="background: #0ff;height: 150px;">
+                <p id="robstring">This is my string, it contains three links, www.tsn.ca, http://www.cnn.com/, and facebook.com</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-9" style="background: #F00;margin-top: 20px;padding-top: 20px;">
+                <input type="text" id="ahmed-test-name" class="btn-block" />
+              </div>
+              <div class="col-sm-3">
+                <button type="button" id="thebutton" class="btn btn-rachael btn-block">Ahmed's button</button>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
 
 <!--<div class="container">
   <h3>Tooltip Example</h3>
   <a href="#" data-toggle="tooltip" title="Hooray!">Hover over me</a>
 </div> -->
 
-    <div class= "container-fluid">
+    <!--<div class= "container-fluid">
       <div class="row">
           <div class="col-xs-4 visit">
             <p>Modh Conaltraidh</p>
+        
           </div>
       <div class="col-xs-8">
         <div class="row">
@@ -103,6 +188,7 @@
 
     <script>
       var myDataRef = new Firebase('https://cabadaich.firebaseio.com/');
+      var string = $("#robstring").html();
       var name= "";
       var authModal = $('#auth-modal').modal( {show: false}); //this cluase hides the modal unless 
       //the user tries to enter a message without being logged in//
@@ -110,13 +196,124 @@
 
       // Create a callback which logs the current auth state
       var authData = myDataRef.getAuth();
-      
+
+   var formattedString = string.replace(/(?:(?:ht|f)tp(?:s?)\:\/\/|~\/|\/)?(?:\w+:\w+@)?((?:(?:[-\w\d{1-3}]+\.)+(?:com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|edu|co\.uk|ac\.uk|it|fr|tv|museum|asia|local|travel|[a-z]{2}))|((\b25[0-5]\b|\b[2][0-4][0-9]\b|\b[0-1]?[0-9]?[0-9]\b)(\.(\b25[0-5]\b|\b[2][0-4][0-9]\b|\b[0-1]?[0-9]?[0-9]\b)){3}))(?::[\d]{1,5})?(?:(?:(?:\/(?:[-\w~!$+|.,=]|%[a-f\d]{2})+)+|\/)+|\?|#)?(?:(?:\?(?:[-\w~!$+|.,*:]|%[a-f\d{2}])+=?(?:[-\w~!$+|.,*:=]|%[a-f\d]{2})*)(?:&(?:[-\w~!$+|.,*:]|%[a-f\d{2}])+=?(?:[-\w~!$+|.,*:=]|%[a-f\d]{2})*)*)*(?:#(?:[-\w~!$ |\/.,*:;=]|%[a-f\d]{2})*)?/ig, "<a href='http://$1'>$1</a>");
+    //alert(formattedString);
+    $("#robstring").html(formattedString);
+    $(document).ready(function() {
       function authDataCallback(authData) {
         if (authData) {
+          alert("User " + authData.uid + " is logged in with " + authData.provider);
           console.log("User " + authData.uid + " is logged in with " + authData.provider);
+        } else {
+          console.log("User is logged out");
+        }
+      }
+      myDataRef.onAuth(authDataCallback);
+      
+      $("#register-display-button").click(function() {
+        $(".main-chat-login").hide();
+        $(".main-chat-register").show();
+      });
+      $("#login-window-button").click(function() {
+        $(".main-chat-register").hide();
+        $(".main-chat-login").show();
+      });
+      $("#login-button").click(function() {
+        var email = $("#email").val();
+        var password = $("#password").val();
+        myDataRef.authWithPassword({
+          email    : email,
+          password : password
+        }, function(error, authData) {
+          if (error) {
+            console.log("Login Failed!", error);
+          } else {
+            console.log("Authenticated successfully with payload:", authData);
+            myDataRef.child('user').child(authData.uid).once("value", function(snapshot) {
+              var user = snapshot.val();
+              for (var key in user) {
+                $("#displayname").html(user[key].name);
+                document.getElementById("displayphoto").src = user[key].photo;
+              } 
+            });            
+            $(".main-chat-login").hide();
+            $(".main-chat-display").show();
+          }
+        });
+      });
+      $("#register-button").click(function() {
+        var name = $("#register-name").val();
+        var email = $("#register-email").val();
+        var password = $("#register-password").val();
+        myDataRef.createUser({
+          email    : email,
+          password : password
+        }, function(error, userData) {
+          if (error) {
+            console.log("Error creating user:", error);
+          } else {
+            console.log("Successfully created user account with uid:", userData.uid);
+            var photoinput = document.getElementById('photo');
+            var f = photoinput.files[0];
+            var reader = new FileReader();
+            reader.onload = (function(theFile) {
+              return function(e) {
+                var filePayload = e.target.result;
+                // Generate a location that can't be guessed using the file's contents and a random number
+                //var hash = CryptoJS.SHA256(Math.random() + CryptoJS.SHA256(filePayload));
+                var firebasephoto = new Firebase(myDataRef + 'photos/' + userData.uid + '/filePayload');
+                // Set the file payload to Firebase and register an onComplete handler to stop the spinner and show the preview
+                firebasephoto.set(filePayload, function() { 
+                  myDataRef.child('user').child(userData.uid).push({id:userData.uid, email:email, name:name, photo:e.target.result}); 
+                  myDataRef.authWithPassword({
+                    email    : email,
+                    password : password
+                  }, function(error, authData) {
+                    if (error) {
+                      console.log("Login Failed!", error);
+                    } else {
+                      console.log("Authenticated successfully with payload:", authData);
+                      $(".main-chat-register").hide();
+                      $(".main-chat-display").show();
+                    }
+                  });
+                  
+                });
+              };
+            })(f);
+            reader.readAsDataURL(f);
+            
+          }
+        });
+      });
+    });   
+
+
+
+
+
+
+
+
+
+//this is the beginning of the code that I created with Carol//
+      function login(provider){
+        console.log("login with ", provider);
+        authModal.modal('hide');
+        myDataRef.authWithOAuthPopup(provider, function(error, authData) {
+          if (error) {
+          console.log("Login Failed!", error);
+          } else {
+          console.log("Authenticated successfully with payload:", authData);
+         //console.log("User " + authData.uid + " is logged in with " + authData.provider);
           var userId = authData.uid
           name = authData[authData.provider].displayName;
-          myDataRef.child('user').child(userId).push({id: userId, name:name});
+          myDataRef.child('user').child(userId).push({id: userId, name:name}); 
+        }
+      });
+      }
+        if (authData) { 
          $("#login").hide(); 
          $("#logout").show(); 
         }
@@ -126,10 +323,8 @@
           
           console.log("User is logged out");
         }
-      }
 
       // Register the callback to be fired every time auth state changes
-      myDataRef.onAuth(authDataCallback);
 
       $('#messageInput').keypress(function (e) {
         if (e.keyCode == 13) {
@@ -153,6 +348,11 @@
           console.log("Login Failed!", error);
           } else {
           console.log("Authenticated successfully with payload:", authData);
+          console.log(authData.facebook.cachedUserProfile.picture.data.url);
+         //console.log("User " + authData.uid + " is logged in with " + authData.provider);
+          var userId = authData.uid
+          name = authData[authData.provider].displayName;
+          myDataRef.child('user').child(userId).push({id: userId, name:name}); 
         }
       });
       }

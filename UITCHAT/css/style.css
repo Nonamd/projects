@@ -1,3 +1,26 @@
+
+.main-chat-login{ 
+	background-image: url('http://scottishjerk.com/wp-content/uploads/2013/05/isle-of-harris-scotland-300x199.jpg');
+    background-size: 99% 99%;
+    background-position: center;
+ 	margin-top: 0px;
+ 	padding-top: 0px;
+    background-repeat: no-repeat;
+    background-color: #556981;
+}
+
+.main-chat-display,
+.main-chat-register {
+	display: none;
+	background-image: url('http://scottishjerk.com/wp-content/uploads/2013/05/isle-of-harris-scotland-300x199.jpg');
+	background-size: 99% 99%;
+    background-position: center;
+ 	margin-top: 0px;
+ 	padding-top: 0px;
+    background-repeat: no-repeat;
+    background-color: #556981;
+}
+
 .visit{
 	background-color: #556981;
 	width:300px;
@@ -31,6 +54,41 @@
 	border-color: #000000;
 	background-color: #246F6A;
 	font-family:'Nanum Gothic', Helvetica, Verdana;
+}
+
+.btn-celticCustom {
+	margin-left: 33% !important;
+	text-align: center !important;
+	float: left !important;
+	height: 40px !important;
+    width: 400px !important;
+	border-color: #EDFBFB !important;
+	box-shadow:20px 20px 50px 20px #FFFFFF !important;
+	background-color: #4F6420 !important;
+	font-family:'Nanum Gothic', Helvetica, Verdana !important;
+}
+
+.btn-celticCustom2 {
+	margin-left: 33% !important;
+	text-align: center !important;
+	height: 40px !important;
+    width: 400px !important;
+    font-color: #EDFBFB !important;
+	border-color: #EDFBFB !important;
+	box-shadow:20px 20px 50px 20px #FFFFFF !important;
+	background-color: #31667B !important;
+	font-family:'Nanum Gothic', Helvetica, Verdana !important;
+}
+
+.btn-celticCustom3{
+	margin-left: 33% !important;
+	text-align: center !important;
+	height: 40px !important;
+    width: 400px !important;
+	border-color: #EDFBFB !important;
+	box-shadow:20px 20px 50px 20px #FFFFFF !important;
+	background-color: #97A8AB !important;
+	font-family:'Nanum Gothic', Helvetica, Verdana !important;
 }
 
 .green{

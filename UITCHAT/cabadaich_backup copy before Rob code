@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+  <head>
+  <!--FIREBASE -->
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+  <!-- JQUERY -->    
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+    
+ <!-- BOOTSTRAP -->
+ <!-- links to include BOOTSTRAP to your project-->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-modal.min.js"></script>
+<!--Fontawesome info -->  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+
+  <!--CSS -->
+    <link rel='stylesheet' type='text/css' href='css/style.css'>
+    <div class-"container">
+      <div class="jumbotron">
+        <!-- <h1> f&#224ilte gu</h1>    
+        <h1> Cabadaich</h1> -->
+            <a href="#" data-toggle="tooltip" data-placement="right" title="Welcome to Gaelic Chat!"><font color="#EEFCFC">f&#224ilte gu</font></br> <font color="#09347C">Cabadaich</font></a>
+      <!-- <a href=src
+          <!--<a href="http://fontmeme.com/celtic-fonts/"><img src="http://fontmeme.com/embed.php?text=f%E0ilte%20gu&name=    KellsFLF.ttf&size=50&style_color=09347C" alt="Celtic Fonts">
+        </a></p>
+        <p><a href="http://fontmeme.com/celtic-fonts/"><img src="http://fontmeme.com/embed.php?text=Cabadaich%20&name=   KellsFLF.ttf&size=100&style_color=09347C" alt="Celtic Fonts">
+        </a></p> -->
+            <p><a id="login" class="btn btn-primary btn-lg " href="#" role="button">cl&#224raich a-steach</a>
+            <a id="logout" button type="button" class="btn btn-warning" onclick=logout()>cl&#224raich a-mach</button>
+          </a>
+        </p>
+      </div>
+    </div>
+  </head>
+  <body>
+
+
+<!--<div class="container">
+  <h3>Tooltip Example</h3>
+  <a href="#" data-toggle="tooltip" title="Hooray!">Hover over me</a>
+</div> -->
+
+    <div class= "container-fluid">
+      <div class="row">
+          <div class="col-xs-4 visit">
+            <p>Modh Conaltraidh</p>
+          </div>
+      <div class="col-xs-8">
+        <div class="row">
+          <div class="col-xs-10">
+              <div id='messagesDiv' class="messages"></div>
+              <a href="#" data-toggle="tooltip" title="Write a message here!">teachdaireachd'</a>
+          </div>
+        </div>
+
+              <input type='text' id='messageInput' class="InputBox" placeholder='teachdaireachd'>    
+        </div>
+      </div>
+    </div>
+
+      <!--<div><a href="javascript:logout();">Logout</a></div> -->
+
+
+    <div class="modal fade" id="auth-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center">Dearbhaich </h4> <!--authenticate -->
+      </div>
+      <div class="modal-body text-center">
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-3">
+            <a id="twitter-signin" href="javascript:login('twitter');">
+               <i id="twitter-signin-btn" class="fa fa-twitter-square fa-5x"></i>
+               <p>Truitrich /Twitter</p>
+            </a>
+          </div>
+
+          <div class="col-md-3">
+             <a id="facebook-signin" href="javascript:login('facebook');">
+               <i id="facebook-signin-btn" class="fa fa-facebook-square fa-5x"></i>
+               <p>Facebook</p>
+             </a>
+           </div>  
+          <!--<div class="col-md-3"></div>-->
+      </div>
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+    <script>
+      var myDataRef = new Firebase('https://cabadaich.firebaseio.com/');
+      var name= "";
+      var authModal = $('#auth-modal').modal( {show: false}); //this cluase hides the modal unless 
+      //the user tries to enter a message without being logged in//
+      //check to see if the user is logged in using getAuth fx
+
+      // Create a callback which logs the current auth state
+      var authData = myDataRef.getAuth();
+
+      function login(provider){
+        console.log("login with ", provider);
+        authModal.modal('hide');
+        myDataRef.authWithOAuthPopup(provider, function(error, authData) {
+          if (error) {
+          console.log("Login Failed!", error);
+          } else {
+          console.log("Authenticated successfully with payload:", authData);
+         //console.log("User " + authData.uid + " is logged in with " + authData.provider);
+          var userId = authData.uid
+          name = authData[authData.provider].displayName;
+          myDataRef.child('user').child(userId).push({id: userId, name:name}); 
+        }
+      });
+      }
+        if (authData) { 
+         $("#login").hide(); 
+         $("#logout").show(); 
+        }
+        else {
+         $("#login").show(); 
+         $("#logout").hide(); 
+          
+          console.log("User is logged out");
+        }
+
+      // Register the callback to be fired every time auth state changes
+
+      $('#messageInput').keypress(function (e) {
+        if (e.keyCode == 13) {
+          //check here to see if user is logged in
+          if(!name){
+            authModal.modal('show');
+          } else { //don't allow submit unless there is a name!
+            //var name = $('#nameInput').val();
+            var text = $('#messageInput').val();
+            myDataRef.child('messages').push({name: name, text: text});
+            $('#messageInput').val('');
+          }
+        }
+      });
+
+      function login(provider){
+        console.log("login with ", provider);
+        authModal.modal('hide');
+        myDataRef.authWithOAuthPopup(provider, function(error, authData) {
+          if (error) {
+          console.log("Login Failed!", error);
+          } else {
+          console.log("Authenticated successfully with payload:", authData);
+          console.log(authData.facebook.cachedUserProfile.picture.data.url);
+         //console.log("User " + authData.uid + " is logged in with " + authData.provider);
+          var userId = authData.uid
+          name = authData[authData.provider].displayName;
+          myDataRef.child('user').child(userId).push({id: userId, name:name}); 
+        }
+      });
+      }
+          
+
+      function logout() {
+        console.log("logging out");
+        myDataRef.unauth();
+        location.reload();
+      }
+
+      myDataRef.child('messages').on('child_added', function(snapshot) {
+        var message = snapshot.val();
+        displayChatMessage(message.name, message.text);
+      });
+      function displayChatMessage(name, text) {
+        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      };
+    </script>
+  </body>
+</html>
