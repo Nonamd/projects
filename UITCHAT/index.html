@@ -214,7 +214,9 @@
       var myDataRef = new Firebase('https://cabadaich.firebaseio.com/');
       var string = $("#robstring").html();
       var name= "";
-      var authModal = $('#auth-modal').modal( {show: false}); //this cluase hides the modal unless 
+      var authModal = $('#auth-modal').modal( {show: false}); //this cluase hides the modal unless
+      var curchannel= "News";
+
       //the user tries to enter a message without being logged in//
       //check to see if the user is logged in using getAuth fx
 
@@ -225,9 +227,21 @@
         console.log("User " + authData.uid + " is logged in with " + authData.provider);
 
         //@TODO: get logged user name
-
-        $("#mainDisplayLogin").hide();
-        $("#mainDisplayMessages").show();
+        if (authData.provider == "password"){
+          myDataRef.child('user').child(authData.uid).once('value', function(snapshot){
+            var userinfo=snapshot.val();
+            for (key in userinfo) {
+              name = userinfo[key].name;
+              $("#mainDisplayLogin").hide();
+              $("#mainDisplayMessages").show();
+            }
+          });
+        }
+        else{
+          name = authData[authData.provider].displayName;
+          $("#mainDisplayLogin").hide();
+          $("#mainDisplayMessages").show();
+        }
 
       } else {
         console.log("User is logged out");
@@ -297,65 +311,99 @@
         
               reader.readAsDataURL(f);
             }
+          });
+        });
+
+        $("#login-button").click(function() {
+          var email = $("#user_email").val();
+          var password = $("#user_password").val();
+          myDataRef.authWithPassword({
+            email    : email,
+            password : password
+          }, function(error, authData) {
+            if (error) {
+              console.log("Login Failed!", error);
+            } else {
+              console.log("Authenticated successfully with payload:", authData);
+              myDataRef.child('user').child(authData.uid).once("value", function(snapshot) {
+                var user = snapshot.val();
+                for (var key in user) {
+                  $("#displayname").html(user[key].name);
+                  document.getElementById("displayphoto").src = user[key].photo;
+                } 
+              });            
+              $("#mainDisplayLogin").hide();
+              $("#mainDisplayMessages").show();
+            }
+          });
+        });
+
+        $('#messageInput').keypress(function (e) {
+          if (e.keyCode == 13) {
+            alert(name);
+            //check here to see if user is logged in
+            if(!name){
+              //authModal.modal('show');
+            } else { //don't allow submit unless there is a name!
+              //var name = $('#nameInput').val();
+              var text = $('#messageInput').val();
+              myDataRef.child('messages').child(curchannel).push({name: name, text: text});
+              $('#messageInput').val('');
+            }
+          }
+        });
+
+        myDataRef.child('messages').child(curchannel).on('child_added', function(snapshot) {
+          var message = snapshot.val();
+          displayChatMessage(message.name, message.text);
         });
       });
 
-      $("#login-button").click(function() {
-        var email = $("#user_email").val();
-        var password = $("#user_password").val();
-        myDataRef.authWithPassword({
-          email    : email,
-          password : password
-        }, function(error, authData) {
+      function channel(TheChannel) {
+        curchannel = TheChannel;
+        $('#messagesDiv').html('');
+        myDataRef.child('messages').child(curchannel).off('child_added');
+        myDataRef.child('messages').child(curchannel).on('child_added', function(snapshot) {
+          var message = snapshot.val();
+          displayChatMessage(message.name, message.text);
+        });
+      }
+
+      function logout() {
+        console.log("logging out");
+        myDataRef.unauth();
+        location.reload();
+      }
+
+      function login(provider) {
+        console.log("login with ", provider);
+        authModal.modal('hide');
+        myDataRef.authWithOAuthPopup(provider, function(error, authData) {
           if (error) {
             console.log("Login Failed!", error);
           } else {
             console.log("Authenticated successfully with payload:", authData);
-            myDataRef.child('user').child(authData.uid).once("value", function(snapshot) {
-              var user = snapshot.val();
-              for (var key in user) {
-                $("#displayname").html(user[key].name);
-                document.getElementById("displayphoto").src = user[key].photo;
-              } 
-            });            
-            $("#mainDisplayLogin").hide();
-            $("#mainDisplayMessages").show();
+            console.log(authData.facebook.cachedUserProfile.picture.data.url);
+            //console.log("User " + authData.uid + " is logged in with " + authData.provider);
+            var userId = authData.uid;
+            name = authData[authData.provider].displayName;
+            myDataRef.child('user').child(userId).once("value", function(snapshot) {
+              var ifExists = snapshot.exist(); //a firebase function
+              if (ifExists){
+                console.log ('user is already in the system');
+              } else{
+                myDataRef.child('user').child(userID).push({id: userId, name:name}); 
+              }
+              $("#mainDisplayLogin").hide();
+              $("#mainDisplayMessages").show();
+            });
           }
-        });
-      });
-    });
-
-    function logout() {
-      console.log("logging out");
-      myDataRef.unauth();
-      location.reload();
-    }
-
-  function login(provider) {
-    console.log("login with ", provider);
-    authModal.modal('hide');
-    myDataRef.authWithOAuthPopup(provider, function(error, authData) {
-      if (error) {
-        console.log("Login Failed!", error);
-      } else {
-        console.log("Authenticated successfully with payload:", authData);
-        console.log(authData.facebook.cachedUserProfile.picture.data.url);
-        //console.log("User " + authData.uid + " is logged in with " + authData.provider);
-        var userId = authData.uid;
-        name = authData[authData.provider].displayName;
-        myDataRef.child('user').child(userId).once("value", function(snapshot) {
-          var ifExists = snapshot.exist(); //a firebase function
-          if (ifExists){
-            console.log ('user is already in the system');
-          } else{
-            myDataRef.child('user').child(userID).push({id: userId, name:name}); 
-          }
-          $("#mainDisplayLogin").hide();
-          $("#mainDisplayMessages").show();
         });
       }
-    });
-  }
+
+      function displayChatMessages(name, text) {
+        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+      } 
 
 
     </script>
