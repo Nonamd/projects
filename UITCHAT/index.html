@@ -5,7 +5,6 @@
   <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
   <!-- JQUERY -->    
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-  <script src="sha256.js"></script>
 
 
   <!-- BOOTSTRAP -->
@@ -38,104 +37,118 @@
 
   <!-- This is the combined login box attempt -->
 
-  <div class="row">
-    <div class="col-xs-5 col-xs-offset-4">
-      <div class="LoginOptionWindow">
-        <h3 class="LoginFormHeader">How Would You Like to Login? </h3>
-        <div class="row">
-          <div class="col-xs-4">
-              <a id="facebook-signin" href="javascript:login('facebook');">
-                <i id="facebook-signin-btn" class="fa fa-facebook-square fa-5x"></i>
-                <p>Facebook</p>
+  <div id="mainDisplay">
+    <div class="row" id="mainDisplayLogin">
+      <div class="col-xs-5 col-xs-offset-4">
+        <div class="LoginOptionWindow">
+          <h3 class="LoginFormHeader">How Would You Like to Login? </h3>
+          <div class="row">
+            <div class="col-xs-4">
+                <a id="facebook-signin" href="javascript:login('facebook');">
+                  <i id="facebook-signin-btn" class="fa fa-facebook-square fa-5x"></i>
+                  <p>Facebook</p>
+                </a>
+            </div>
+
+            <div class="col-xs-4">
+              <a id="twitter-signin" href="javascript:login('twitter');">
+                <i id="twitter-signin-btn" class="fa fa-twitter-square fa-5x"></i>
+                <p>Truitrich /Twitter</p>
               </a>
+            </div>
+
+            <div class="col-xs-4">
+              <a id="email-sign-in">
+                <i id="email-signin-btn" class="fa fa-envelope-o fa-5x"></i>
+                <p>email</p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="LoginEmailWindow" style="display: none;">
+          <div class="form-group">
+            <label class="name" for="user_password">Name</label>
+            <input class="form-control" id="user_name" name="user[name]" placeholder="Enter Name" type="text">
           </div>
 
-          <div class="col-xs-4">
-            <a id="twitter-signin" href="javascript:login('twitter');">
-              <i id="twitter-signin-btn" class="fa fa-twitter-square fa-5x"></i>
-              <p>Truitrich /Twitter</p>
-            </a>
+          <div class="form-group">
+            <div class="row"> 
+              <p>Or, Use your email &amp; password</p>
+            <label class="email optional control-label" for="user_email">Email</label>
+            <input autofocus="autofocus" class="string email optional form-control" id="user_email" name="user[email]" placeholder="Enter email" type="email" value="">
+          </div>
+        </div>
+
+          <div class="form-group">
+            <label class="password optional control-label" for="user_password">Password</label>
+            <input class="form-control" id="user_password" name="user[password]" placeholder="Enter password" type="password">
           </div>
 
-          <div class="col-xs-4">
-            <a id="email-sign-in">
-              <i id="email-signin-btn" class="fa fa-envelope-o fa-5x"></i>
-              <p>email</p>
-            </a>
-          </div>
+          <!-- <div class="form-group">
+            <div class="checkbox">
+              <input name="user[remember_me]" type="hidden" value="0"><label class="checkbox"><input checked="checked" class="boolean optional" id="user_remember_me" inline_label="true" name="user[remember_me]" type="checkbox" value="1"> Remember me</label>
+            </div>
+          </div> -->
+        
+          <input class="btn btn btn-success" name="commit" type="button" id="login-button" value="Sign in">
+          <button type="button" id="LoginRegisterButton">Register</button>
+          <button type="button" id="LoginCancel">Cancel</button>
         </div>
       </div>
 
-      <div class="LoginEmailWindow" style="display: none;">
-        <div class="form-group">
-          <div class="row"> 
-            <p>Or, Use your email &amp; password</p>
-          <label class="email optional control-label" for="user_email">Email</label>
-          <input autofocus="autofocus" class="string email optional form-control" id="user_email" name="user[email]" placeholder="Enter email" type="email" value="">
-        </div>
-      </div>
+      <div class="main-chat-register" style="display: none;">
+        <div class="container">
+          <h1>Do I Need This?</h1>
 
-        <div class="form-group">
-          <label class="password optional control-label" for="user_password">Password</label>
-          <input class="form-control" id="user_password" name="user[password]" placeholder="Enter password" type="password">
-        </div>
-
-        <div class="form-group">
-          <div class="checkbox">
-            <input name="user[remember_me]" type="hidden" value="0"><label class="checkbox"><input checked="checked" class="boolean optional" id="user_remember_me" inline_label="true" name="user[remember_me]" type="checkbox" value="1"> Remember me</label>
+          <div class="row">
+            <div class="col-sm-12">
+                <input type="text" class="btn-celticCustom" id="register-name" value="" placeholder="Your Name" />
+            </div>
+            <div class="col-sm-12">
+                <input type="text" class="btn-block" id="register-email" value="" placeholder="Your e-mail address" />
+            </div>
+            <div class="col-sm-12">
+              <input type="text" class="btn-block" id="register-password" value="" placeholder="Your password" />
+            </div>
+            <div class="col-sm-12">
+              <label>Photo</label>
+              <input type="file" id="photo" />
+            </div>
+            <div class="col-sm-12">
+              <button type="button" class="btn btn-block btn-primary" id="register-button">Register</button>
+            </div>
+            <div class="col-sm-12">
+              <button type="button" class="btn btn-block btn-danger" id="login-window-button">Login</button>
+            </div>
           </div>
         </div>
-      
-        <input class="btn btn btn-success" name="commit" type="submit" value="Sign in">
-        <button type="button" id="LoginRegisterButton">Register</button>
-        <button type="button" id="LoginCancel">Cancel</button>
       </div>
-    </div>
+    </div>  
 
-    <div class="main-chat-register" style="display: none;">
-      <div class="container">
-        <h1>Do I Need This?</h1>
-
+    <div class="row" id="mainDisplayMessages" style="display:none;">
+      <img src="" id="displayphoto" style="height: 40px; width: 40px;" /> <span id="displayname"></span>
+      <div class="col-xs-8">
         <div class="row">
-          <div class="col-sm-12">
-              <input type="text" class="btn-celticCustom" id="register-name" value="" placeholder="Your Name" />
-          </div>
-          <div class="col-sm-12">
-              <input type="text" class="btn-block" id="register-email" value="" placeholder="Your e-mail address" />
-          </div>
-          <div class="col-sm-12">
-            <input type="text" class="btn-block" id="register-password" value="" placeholder="Your password" />
-          </div>
-          <div class="col-sm-12">
-            <label>Photo</label>
-            <input type="file" id="photo" />
-          </div>
-          <div class="col-sm-12">
-            <button type="button" class="btn btn-block btn-primary" id="register-button">Register</button>
-          </div>
-          <div class="col-sm-12">
-            <button type="button" class="btn btn-block btn-danger" id="login-window-button">Login</button>
+          <div class="col-xs-10">
+            <div id='messagesDiv' class="messages"></div>
+            <!-- <a href="#" data-toggle="tooltip" title="Write a message here!">teachdaireachd'</a> -->
           </div>
         </div>
+        <input type='text' id='messageInput' class="InputBox" placeholder='teachdaireachd'>    
       </div>
+      <div><a href="javascript:logout();">Logout</a></div>
     </div>
-  </div>   
-  
+  </div> 
+
+   
 
 
-<!--     <form accept-charset="UTF-8" action="/users/sign_in" class="simple_form new_user" id="new_user" method="post" novalidate="novalidate"><div style="display:none"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="vNdEJyJn690hf/zcThJl2cBFxcqvmTlDK1wRrr49Fi4=" authenticity_token="vNdEJyJn690hf/zcThJl2cBFxcqvmTlDK1wRrr49Fi4="></div> -->
-      
-      <!-- <div class="form-group">
-        <div class="col-xs-3">
-                 <a id="facebook-signin" href="javascript:login('facebook');">
-                   <i id="facebook-signin-btn" class="fa fa-facebook-square fa-5x"></i>
-                   <p>Facebook</p>
-                 </a>
-        </div> 
-      </div> -->
 
-      
-      
+
+
+
+
     <!-- or <a href="/users/sign_up">Sign up</a>
 
 <div class="user-links">
@@ -145,16 +158,11 @@
 
 </div>
 
-
-</form>  </div>
-  
-</div> -->
-
 <!-- End of Login Screen Options -->
 
 
-
-<div class="main-chat-login">
+<!-- This was the old login window, clean it out -->
+<!-- <div class="main-chat-login">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
@@ -172,10 +180,10 @@
       </div>
     </div>
   </div>
-
+ -->
   
 
-  <div class="main-chat-display">
+  <!-- <div class="main-chat-display">
     <h1><img src="" id="displayphoto" style="height: 40px; width: 40px;" /> <span id="displayname"></span></h1>
       <div class="row">
             <div class="col-xs-4 visit">
@@ -187,22 +195,9 @@
                 <button type="button" class="btn-channel" onclick="channel('Projects')">Pr&#242iseactean &#217r</button>
                 <button type="button" class="btn-channel" onclick="channel('Stay & Work')">Fuirich & Oibrich</button>
             </div>
-      </div>
+      </div> -->
 
-      <div class="col-xs-8">
-        <div class="row">
-          <div class="col-xs-10">
-              <div id='messagesDiv' class="messages"></div>
-              <!-- <a href="#" data-toggle="tooltip" title="Write a message here!">teachdaireachd'</a> -->
-          </div>
-        </div>
-              <input type='text' id='messageInput' class="InputBox" placeholder='teachdaireachd'>    
-        </div>
-      </div>
-    </div>
-
-
-
+      
 
 
 <!-- <div class="container">
@@ -229,42 +224,14 @@
       </div>
     </div> -->
 
-    <div><a href="javascript:logout();">Logout</a></div>
 
 
-    <div class="modal fade" id="auth-modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title text-center">Dearbhaich </h4> <!--authenticate -->
-      </div>
-      <div class="modal-body text-center">
-        <div class="row">
-          <div class="col-md-3"></div>
-          <div class="col-md-3">
-            <a id="twitter-signin" href="javascript:login('twitter');">
-               <i id="twitter-signin-btn" class="fa fa-twitter-square fa-5x"></i>
-               <p>Truitrich /Twitter</p>
-            </a>
-          </div>
 
-          <div class="col-md-3">
-             <a id="facebook-signin" href="javascript:login('facebook');">
-               <i id="facebook-signin-btn" class="fa fa-facebook-square fa-5x"></i>
-               <p>Facebook</p>
-             </a>
-           </div>  
-          <!--<div class="col-md-3"></div>-->
-      </div>
-    </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+
+
+
+
+
 
 
     <script>
@@ -277,52 +244,89 @@
 
       // Create a callback which logs the current auth state
       var authData = myDataRef.getAuth();
+      if (authData) {
+        // alert("User " + authData.uid + " is logged in with " + authData.provider);
+        console.log("User " + authData.uid + " is logged in with " + authData.provider);
 
-   //var formattedString = string.replace(/(?:(?:ht|f)tp(?:s?)\:\/\/|~\/|\/)?(?:\w+:\w+@)?((?:(?:[-\w\d{1-3}]+\.)+(?:com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|edu|co\.uk|ac\.uk|it|fr|tv|museum|asia|local|travel|[a-z]{2}))|((\b25[0-5]\b|\b[2][0-4][0-9]\b|\b[0-1]?[0-9]?[0-9]\b)(\.(\b25[0-5]\b|\b[2][0-4][0-9]\b|\b[0-1]?[0-9]?[0-9]\b)){3}))(?::[\d]{1,5})?(?:(?:(?:\/(?:[-\w~!$+|.,=]|%[a-f\d]{2})+)+|\/)+|\?|#)?(?:(?:\?(?:[-\w~!$+|.,*:]|%[a-f\d{2}])+=?(?:[-\w~!$+|.,*:=]|%[a-f\d]{2})*)(?:&(?:[-\w~!$+|.,*:]|%[a-f\d{2}])+=?(?:[-\w~!$+|.,*:=]|%[a-f\d]{2})*)*)*(?:#(?:[-\w~!$ |\/.,*:;=]|%[a-f\d]{2})*)?/ig, "<a href='http://$1'>$1</a>");
-    //alert(formattedString);
-    //$("#robstring").html(formattedString);
-    
+        //@TODO: get logged user name
 
-    $(document).ready(function() {
+        $("#mainDisplayLogin").hide();
+        $("#mainDisplayMessages").show();
 
-      $("#email-sign-in").click(function(){
-        $(".LoginOptionWindow").hide();
-        $(".LoginEmailWindow").show();  
-      });
-
-      $("#LoginCancel").click(function(){
-        $(".LoginEmailWindow").hide();  
-        $(".LoginOptionWindow").show();
-      });
-
-
-      $("#LoginRegisterButton").click(function() {
-        $(".LoginEmailWindow").hide();
-        $(".main-chat-register").show();
-      });
-
-      $("#login-window-button").click(function() {
-        $(".main-chat-register").hide();
-        $(".LoginEmailWindow").show();
-      });
-
-
-
-
-
-      function authDataCallback(authData) {
-        if (authData) {
-          alert("User " + authData.uid + " is logged in with " + authData.provider);
-          console.log("User " + authData.uid + " is logged in with " + authData.provider);
-        } else {
-          console.log("User is logged out");
-        }
+      } else {
+        console.log("User is logged out");
       }
-      myDataRef.onAuth(authDataCallback);
-      
+
+      $(document).ready(function() {
+
+        $("#email-sign-in").click(function(){
+          $(".LoginOptionWindow").hide();
+          $(".LoginEmailWindow").show();  
+        });
+
+        $("#LoginCancel").click(function(){
+          $(".LoginEmailWindow").hide();  
+          $(".LoginOptionWindow").show();
+        });
+
+
+        $("#LoginRegisterButton").click(function() {
+          $(".LoginEmailWindow").hide();
+          $(".main-chat-register").show();
+        });
+
+        $("#login-window-button").click(function() {
+          $(".main-chat-register").hide();
+          $(".LoginEmailWindow").show();
+        });
+
+        $("#register-button").click(function() {
+          var registerName = $("#register-name").val();
+          var email = $("#register-email").val();
+          var password = $("#register-password").val();
+          myDataRef.createUser({
+            email    : email,
+            password : password
+          }, function(error, userData) {
+            if (error) {
+              console.log("Error creating user:", error);
+            } else {
+              console.log("Successfully created user account with uid:", userData.uid);
+              var photoinput = document.getElementById('photo');
+              var f = photoinput.files[0];
+              var reader = new FileReader();
+              reader.onload = (function(theFile) {
+                return function(e) {
+                  var filePayload = e.target.result;
+                  // Generate a location that can't be guessed using the file's contents and a random number
+                  //var hash = CryptoJS.SHA256(Math.random() + CryptoJS.SHA256(filePayload));
+                  var firebasephoto = new Firebase(myDataRef + '/photos/' + userData.uid + '/filePayload');
+                  // Set the file payload to Firebase and register an onComplete handler to stop the spinner and show the preview
+                  //firebasephoto.set(filePayload, function() { 
+                  myDataRef.child('user').child(userData.uid).push({id:userData.uid, email:email, name:registerName, photo:e.target.result}); 
+                  myDataRef.authWithPassword({
+                    email    : email,
+                    password : password
+                  }, function(error, authData) {
+                    if (error) {
+                      console.log("Login Failed!", error);
+                    } else {
+                      console.log("Authenticated successfully with payload:", authData);
+                      $("#mainDisplayLogin").hide();
+                      $("#mainDisplayMessages").show();
+                    }
+                  });
+                };
+              })(f);
+        
+              reader.readAsDataURL(f);
+            }
+        });
+      });
+
       $("#login-button").click(function() {
-        var email = $("#email").val();
-        var password = $("#password").val();
+        var email = $("#user_email").val();
+        var password = $("#user_password").val();
         myDataRef.authWithPassword({
           email    : email,
           password : password
@@ -338,138 +342,126 @@
                 document.getElementById("displayphoto").src = user[key].photo;
               } 
             });            
-            $(".main-chat-login").hide();
-            $(".main-chat-display").show();
+            $("#mainDisplayLogin").hide();
+            $("#mainDisplayMessages").show();
           }
         });
       });
-      $("#register-button").click(function() {
-        var name = $("#register-name").val();
-        var email = $("#register-email").val();
-        var password = $("#register-password").val();
-        myDataRef.createUser({
-          email    : email,
-          password : password
-        }, function(error, userData) {
-          if (error) {
-            console.log("Error creating user:", error);
-          } else {
-            console.log("Successfully created user account with uid:", userData.uid);
-            var photoinput = document.getElementById('photo');
-            var f = photoinput.files[0];
-            var reader = new FileReader();
-            reader.onload = (function(theFile) {
-              return function(e) {
-                var filePayload = e.target.result;
-                // Generate a location that can't be guessed using the file's contents and a random number
-                //var hash = CryptoJS.SHA256(Math.random() + CryptoJS.SHA256(filePayload));
-                var firebasephoto = new Firebase(myDataRef + '/photos/' + userData.uid + '/filePayload');
-                // Set the file payload to Firebase and register an onComplete handler to stop the spinner and show the preview
-                //firebasephoto.set(filePayload, function() { 
-                  myDataRef.child('user').child(userData.uid).push({id:userData.uid, email:email, name:name, photo:e.target.result}); 
-                  myDataRef.authWithPassword({
-                    email    : email,
-                    password : password
-                  }, function(error, authData) {
-                    if (error) {
-                      console.log("Login Failed!", error);
-                    } else {
-                      console.log("Authenticated successfully with payload:", authData);
-                      $(".main-chat-register").hide();
-                      $(".main-chat-display").show();
-                    }
-                  });
-                  
-                //});
-              };
-            })(f);
-            reader.readAsDataURL(f);
-            
+    });
+
+    function logout() {
+      console.log("logging out");
+      myDataRef.unauth();
+      location.reload();
+    }
+
+  function login(provider) {
+    console.log("login with ", provider);
+    authModal.modal('hide');
+    myDataRef.authWithOAuthPopup(provider, function(error, authData) {
+      if (error) {
+        console.log("Login Failed!", error);
+      } else {
+        console.log("Authenticated successfully with payload:", authData);
+        console.log(authData.facebook.cachedUserProfile.picture.data.url);
+        //console.log("User " + authData.uid + " is logged in with " + authData.provider);
+        var userId = authData.uid;
+        name = authData[authData.provider].displayName;
+        myDataRef.child('user').child(userId).once("value", function(snapshot) {
+          var ifExists = snapshot.exist(); //a firebase function
+          if (ifExists){
+            console.log ('user is already in the system');
+          } else{
+            myDataRef.child('user').child(userID).push({id: userId, name:name}); 
           }
+          $("#mainDisplayLogin").hide();
+          $("#mainDisplayMessages").show();
         });
-      });
-    });   
-
-
-
-
-
-
-
-
-
-//this is the beginning of the code that I created with Carol//
-      function login(provider){
-        console.log("login with ", provider);
-        authModal.modal('hide');
-        myDataRef.authWithOAuthPopup(provider, function(error, authData) {
-          if (error) {
-          console.log("Login Failed!", error);
-          } else {
-          console.log("Authenticated successfully with payload:", authData);
-         //console.log("User " + authData.uid + " is logged in with " + authData.provider);
-          var userId = authData.uid
-          name = authData[authData.provider].displayName;
-          myDataRef.child('user').child(userId).push({id: userId, name:name}); 
-        }
-      });
       }
-        if (authData) { 
-         $("#login").hide(); 
-         $("#logout").show(); 
-        }
-        else {
-         $("#login").show(); 
-         $("#logout").hide(); 
+    });
+  }
+
+
+
+
+
+
+
+
+
+//       function authDataCallback(authData) {
+//         if (authData) {
+//           // alert("User " + authData.uid + " is logged in with " + authData.provider);
+//           console.log("User " + authData.uid + " is logged in with " + authData.provider);
+//         } else {
+//           console.log("User is logged out");
+//         }
+//       }
+//       myDataRef.onAuth(authDataCallback);
+      
+//       
+      
+//     });   
+
+
+
+
+
+
+
+
+
+// //this is the beginning of the code that I created with Carol//
+//       function login(provider){
+//         console.log("login with ", provider);
+//         authModal.modal('hide');
+//         myDataRef.authWithOAuthPopup(provider, function(error, authData) {
+//           if (error) {
+//           console.log("Login Failed!", error);
+//           } else {
+//           console.log("Authenticated successfully with payload:", authData);
+//          //console.log("User " + authData.uid + " is logged in with " + authData.provider);
+//           var userId = authData.uid
+//           name = authData[authData.provider].displayName;
+//           myDataRef.child('user').child(userId).push({id: userId, name:name}); 
+//         }
+//       });
+//       }
+//         if (authData) { 
+//          $("#login").hide(); 
+//          $("#logout").show(); 
+//         }
+//         else {
+//          $("#login").show(); 
+//          $("#logout").hide(); 
           
-          console.log("User is logged out");
-        }
+//           console.log("User is logged out");
+//         }
 
-      // Register the callback to be fired every time auth state changes
+//       // Register the callback to be fired every time auth state changes
 
-      $('#messageInput').keypress(function (e) {
-        if (e.keyCode == 13) {
-          //check here to see if user is logged in
-          if(!name){
-            authModal.modal('show');
-          } else { //don't allow submit unless there is a name!
-            //var name = $('#nameInput').val();
-            var text = $('#messageInput').val();
-            myDataRef.child('messages').child('channel').push({name: name, text: text});
-            $('#messageInput').val('');
-          }
-        }
-      });
+//       $('#messageInput').keypress(function (e) {
+//         if (e.keyCode == 13) {
+//           //check here to see if user is logged in
+//           if(!name){
+//             authModal.modal('show');
+//           } else { //don't allow submit unless there is a name!
+//             //var name = $('#nameInput').val();
+//             var text = $('#messageInput').val();
+//             myDataRef.child('messages').child('channel').push({name: name, text: text});
+//             $('#messageInput').val('');
+//           }
+//         }
+//       });
 
-      // function login(provider){
-      //   console.log("login with ", provider);
-      //   authModal.modal('hide');
-      //   myDataRef.authWithOAuthPopup(provider, function(error, authData) {
-      //     if (error) {
-      //     console.log("Login Failed!", error);
-      //     } else {
-      //     console.log("Authenticated successfully with payload:", authData);
-      //     console.log(authData.facebook.cachedUserProfile.picture.data.url);
-      //    //console.log("User " + authData.uid + " is logged in with " + authData.provider);
-      //     var userId = authData.uid;
-      //     name = authData[authData.provider].displayName;
-      //     myDataRef.child('user').child(userId).once("value", function(snapshot) {
-      //       var ifExists = snapshot.exist(); //a firebase function
-      //       if (ifExists){
-      //         console.log ('user is already in the system');
-      //       } else{
-      //         myDataRef.child('user').child(userID).push({id: userId, name:name}); 
-      //       }
-      //   }
-      // });
-      // }
+
+
+
+
+      
           
 
-      // function logout() {
-      //   console.log("logging out");
-      //   myDataRef.unauth();
-      //   location.reload();
-      // }
+      // 
 
       // myDataRef.child('messages').on('child_added', function(snapshot) {
       //   var message = snapshot.val();
