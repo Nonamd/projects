@@ -3,6 +3,17 @@
 /*Button Naming Convention*/
 /*Variable Naming Convention*/
 
+.LoginOptionsRow{
+	background-image: url('http://scottishjerk.com/wp-content/uploads/2013/05/isle-of-harris-scotland-300x199.jpg');
+    background-size: 99% 99%;
+    background-position: center;
+ 	margin-top: 0px;
+ 	padding-top: 0px;
+    background-repeat: no-repeat;
+    background-color: #556981;
+
+}
+
 .main-chat-login{ 
 	background-image: url('http://scottishjerk.com/wp-content/uploads/2013/05/isle-of-harris-scotland-300x199.jpg');
     background-size: 99% 99%;
@@ -123,16 +134,16 @@
 }
 
 .jumbotron{
-	background-color:#A5B06E;
-	font-color:#050900;
-	text-align:center;
-	font-family:'celticmd';
+	background-color: #A5B06E;
+	font-color: #050900;
+	text-align: center;
+	font-family: 'celticmd', Helvetica;
 	font-size: 390%;
-	height:260px;
+	height: 220px !important;
 	margin-top: 0px !important;
 	margin-bottom: 0px !important;
-	padding-top: 20px !important;
-	padding-bottom: 20px !important;
+	padding-top: 10px !important;
+	padding-bottom: 0px !important;
 }
 
 .jumbotronwidth
@@ -140,6 +151,11 @@
 	max-width:100%;
 }
 
+.form-group{
+	display: inline-block;
+	width: 70%;
+
+}
 .h1 {
   font-family:'celticmd','gaelic', sans-serif;
   font-color: #EBE9D2;
@@ -156,5 +172,13 @@
   font-family: 'Nanum Gothic', Helvetica, Verdana;
   color: #09347C;
   font-size:500%;
+  text-align: center;
   text-shadow: 4px 4px 3px rgba(0,0,0,0.1)
+}
+.LoginFormHeader{
+  font-family: 'Nanum Gothic', Helvetica, Verdana;
+  color: #09347C;
+  font-size: 250%;
+  text-align: center;
+  text-shadow: 4px 4px 3px rgba(0,0,0,0.1)	
 }
