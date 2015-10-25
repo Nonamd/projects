@@ -26,11 +26,6 @@
         <!-- <h1> f&#224ilte gu</h1>    
         <h1> Cabadaich</h1> -->
             <a href="#" data-toggle="tooltip" data-placement="right" title="Welcome to Gaelic Chat!"><font color="#EEFCFC">f&#224ilte gu</font></br> <font color="#09347C">Cabadaich</font></a>
-      <!-- <a href=src
-          <!--<a href="http://fontmeme.com/celtic-fonts/"><img src="http://fontmeme.com/embed.php?text=f%E0ilte%20gu&name=    KellsFLF.ttf&size=50&style_color=09347C" alt="Celtic Fonts">
-        </a></p>
-        <p><a href="http://fontmeme.com/celtic-fonts/"><img src="http://fontmeme.com/embed.php?text=Cabadaich%20&name=   KellsFLF.ttf&size=100&style_color=09347C" alt="Celtic Fonts">
-        </a></p> -->
             <p><a id="login" class="btn btn-primary btn-lg " href="#" role="button">cl&#224raich a-steach</a>
             <a id="logout" button type="button" class="btn btn-warning" onclick=logout()>cl&#224raich a-mach</button>
           </a>
@@ -61,7 +56,7 @@
 
   <div class="main-chat-register">
     <div class="container">
-      <h1>This is the register window</h1>
+      <h1>Do I Need This?</h1>
 
       <div class="row">
         <div class="col-sm-12">
@@ -88,9 +83,36 @@
   </div>
 
   <div class="main-chat-display">
-    <h1><img src="" id="displayphoto" style="height: 200px;width: 200px;" /> <span id="displayname"></span></h1>
-    <div class="container">
+    <h1><img src="" id="displayphoto" style="height: 40px; width: 40px;" /> <span id="displayname"></span></h1>
       <div class="row">
+          <div class="col-xs-4 visit">
+            <p>Modh Conaltraidh</p>
+              <button type="button" class="btn-channel" onclick="channel('News')">Naidheachd</button>
+              <button type="button" class="btn-channel" onclick="channel('Music & Song')">Ce&#242l & &#210ranach</button>
+              <button type="button" class="btn-channel" onclick="channel('Stories & Poetry')">Sgeul & D&#224nachd</button>
+              <button type="button" class="btn-channel" onclick="channel('Polish & Grammar')">Snasadh & Gr&#224mar</button>
+              <button type="button" class="btn-channel" onclick="channel('Projects')">Pr&#242iseactean &#217r</button>
+              <button type="button" class="btn-channel" onclick="channel('Stay & Work')">Fuirich & Oibrich</button>
+          </div>
+        </div>
+      <div class="col-xs-8">
+        <div class="row">
+          <div class="col-xs-10">
+              <div id='messagesDiv' class="messages"></div>
+              <!-- <a href="#" data-toggle="tooltip" title="Write a message here!">teachdaireachd'</a> -->
+          </div>
+        </div>
+              <input type='text' id='messageInput' class="InputBox" placeholder='teachdaireachd'>    
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+      <!--<div class="container">
+        <div class="row">
           <div class="col-sm-12" style="background: #ff0;"><p style="text-align:center;">This is a big row!</p></div>
 
           <div class="col-sm-3" style="background: #f0f;min-height: 300px;">
@@ -111,25 +133,25 @@
                 <button type="button" id="thebutton" class="btn btn-rachael btn-block">Ahmed's button</button>
               </div>
             </div>
-          </div>
+          </div> 
       </div>
       <div class="row">
         <div class="col-sm-4">
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
 
 
 
-<!--<div class="container">
+<!-- <div class="container">
   <h3>Tooltip Example</h3>
   <a href="#" data-toggle="tooltip" title="Hooray!">Hover over me</a>
-</div> -->
+</div>
 
-    <!--<div class= "container-fluid">
+   <div class= "container-fluid">
       <div class="row">
           <div class="col-xs-4 visit">
             <p>Modh Conaltraidh</p>
@@ -146,9 +168,9 @@
               <input type='text' id='messageInput' class="InputBox" placeholder='teachdaireachd'>    
         </div>
       </div>
-    </div>
+    </div> -->
 
-      <!--<div><a href="javascript:logout();">Logout</a></div> -->
+    <div><a href="javascript:logout();">Logout</a></div>
 
 
     <div class="modal fade" id="auth-modal">
@@ -197,9 +219,9 @@
       // Create a callback which logs the current auth state
       var authData = myDataRef.getAuth();
 
-   var formattedString = string.replace(/(?:(?:ht|f)tp(?:s?)\:\/\/|~\/|\/)?(?:\w+:\w+@)?((?:(?:[-\w\d{1-3}]+\.)+(?:com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|edu|co\.uk|ac\.uk|it|fr|tv|museum|asia|local|travel|[a-z]{2}))|((\b25[0-5]\b|\b[2][0-4][0-9]\b|\b[0-1]?[0-9]?[0-9]\b)(\.(\b25[0-5]\b|\b[2][0-4][0-9]\b|\b[0-1]?[0-9]?[0-9]\b)){3}))(?::[\d]{1,5})?(?:(?:(?:\/(?:[-\w~!$+|.,=]|%[a-f\d]{2})+)+|\/)+|\?|#)?(?:(?:\?(?:[-\w~!$+|.,*:]|%[a-f\d{2}])+=?(?:[-\w~!$+|.,*:=]|%[a-f\d]{2})*)(?:&(?:[-\w~!$+|.,*:]|%[a-f\d{2}])+=?(?:[-\w~!$+|.,*:=]|%[a-f\d]{2})*)*)*(?:#(?:[-\w~!$ |\/.,*:;=]|%[a-f\d]{2})*)?/ig, "<a href='http://$1'>$1</a>");
+   //var formattedString = string.replace(/(?:(?:ht|f)tp(?:s?)\:\/\/|~\/|\/)?(?:\w+:\w+@)?((?:(?:[-\w\d{1-3}]+\.)+(?:com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|edu|co\.uk|ac\.uk|it|fr|tv|museum|asia|local|travel|[a-z]{2}))|((\b25[0-5]\b|\b[2][0-4][0-9]\b|\b[0-1]?[0-9]?[0-9]\b)(\.(\b25[0-5]\b|\b[2][0-4][0-9]\b|\b[0-1]?[0-9]?[0-9]\b)){3}))(?::[\d]{1,5})?(?:(?:(?:\/(?:[-\w~!$+|.,=]|%[a-f\d]{2})+)+|\/)+|\?|#)?(?:(?:\?(?:[-\w~!$+|.,*:]|%[a-f\d{2}])+=?(?:[-\w~!$+|.,*:=]|%[a-f\d]{2})*)(?:&(?:[-\w~!$+|.,*:]|%[a-f\d{2}])+=?(?:[-\w~!$+|.,*:=]|%[a-f\d]{2})*)*)*(?:#(?:[-\w~!$ |\/.,*:;=]|%[a-f\d]{2})*)?/ig, "<a href='http://$1'>$1</a>");
     //alert(formattedString);
-    $("#robstring").html(formattedString);
+    //$("#robstring").html(formattedString);
     $(document).ready(function() {
       function authDataCallback(authData) {
         if (authData) {
@@ -262,9 +284,9 @@
                 var filePayload = e.target.result;
                 // Generate a location that can't be guessed using the file's contents and a random number
                 //var hash = CryptoJS.SHA256(Math.random() + CryptoJS.SHA256(filePayload));
-                var firebasephoto = new Firebase(myDataRef + 'photos/' + userData.uid + '/filePayload');
+                var firebasephoto = new Firebase(myDataRef + '/photos/' + userData.uid + '/filePayload');
                 // Set the file payload to Firebase and register an onComplete handler to stop the spinner and show the preview
-                firebasephoto.set(filePayload, function() { 
+                //firebasephoto.set(filePayload, function() { 
                   myDataRef.child('user').child(userData.uid).push({id:userData.uid, email:email, name:name, photo:e.target.result}); 
                   myDataRef.authWithPassword({
                     email    : email,
@@ -279,7 +301,7 @@
                     }
                   });
                   
-                });
+                //});
               };
             })(f);
             reader.readAsDataURL(f);
