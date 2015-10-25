@@ -1,199 +1,126 @@
-<!doctype html>
-<html>
-  <head>
-  <!--FIREBASE -->
-    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-  <!-- JQUERY -->    
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-    <script src="sha256.js"></script>
-
-    
- <!-- BOOTSTRAP -->
- <!-- links to include BOOTSTRAP to your project-->
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" />
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-modal.min.js"></script>
-<!--Fontawesome info -->  
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 
-</head>
-<body>
-<div class="inspiredSearchRegistrationContainer centeredWithinWrapper focused">
-                            <div class="Module SignupForm homeSignupForm">
+//Removed from Row 87 - Remember Me Functionality - May add in later //
+<!-- <div class="form-group">
+            <div class="checkbox">
+              <input name="user[remember_me]" type="hidden" value="0"><label class="checkbox"><input checked="checked" class="boolean optional" id="user_remember_me" inline_label="true" name="user[remember_me]" type="checkbox" value="1"> Remember me</label>
+            </div>
+          </div> -->
 
 
-    
+//Removed from Row 138 - Forgot Your Password Functionality - May add in later //
+<!-- or <a href="/users/sign_up">Sign up</a>
+
+<div class="user-links">
+    <a href="/users/password/new">Forgot your password?</a>
+
+    <a href="/users/confirmation/new">Didn't receive confirmation instructions?</a>
+
+</div>
 
 
-<div class="buttonWrapper">
-    <div class="registerButtons styleLogin">
-                    <div class=" inspiredWallLogin Login LoginBase Module compact register">
+//       function authDataCallback(authData) {
+//         if (authData) {
+//           // alert("User " + authData.uid + " is logged in with " + authData.provider);
+//           console.log("User " + authData.uid + " is logged in with " + authData.provider);
+//         } else {
+//           console.log("User is logged out");
+//         }
+//       }
+//       myDataRef.onAuth(authDataCallback);
+      
+//       
+      
+//     });   
 
-<form class="standardForm standardForm--login popupStyle" method="post">
-                            
-            
-            
-    
-        <div class="socialLogin">
-                    
-    
-                                                                                            <button class="Button Module btn hasText large rounded unAuthFacebookConnect registerLoginButton unauthHomeRegisterButton multiStepRedesign" type="button">    
 
-
-<em></em>
-<span class="buttonText">Continue with Facebook</span>
-        </button>
-                <div class="facebookTooltip">Oops! Please provide your email.</div>
-                                    
+//Removed from Row 141 - Old Login Screen with Just Email Authentication (login and register) - not needed now as replaced by new screen functions//
+<!-- This was the old login window, clean it out -->
+<!-- <div class="main-chat-login">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+            <input type="text" class="btn-celticCustom" id="email" value="" placeholder="Your e-mail address" />
         </div>
-
-    
-            <div class="formFooter">
-                                            
-
-                    
-                    <p class="compactViewLogin">
-                            </p>
-                    </div>
-    </form>
-</div>
-        
-                    <div class="Module UserRegister inline">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<form class="standardForm darkWall" method="post">
-    <div class="inlineEmailForm">
-        <ul class="namegroup">
-            <div class="step1 multiStep mWebMultiStep darkWall">
-                <div class="groupSeparatorWrapper">
-                    <div class="groupSeparator">
-                        <p>or</p>
-                    </div>
-                </div>
-                <div class="step1Bottom">
-                    <li class="emailGroup">
-                        <fieldset class="fieldset emailFieldRedesign">
-                            <em id="errorIconEmail" class="errorIcon "></em>
-                            <input type="email" name="email" id="userEmail" placeholder="Email" class="textField email" autocomplete="email" autofocus="">
-                        </fieldset>
-                                                                                                            <fieldset class="fieldset passwordFieldRedesign">
-                                <em id="errorIconPassword" class="errorIcon"></em>
-                                <input type="password" name="password" id="userPassword" placeholder="Create a password" class="textField password" value="">
-                            </fieldset>
-                                                <input type="hidden" name="country" value="CA">
-                    </li>
-                    <div id="firstStepTooltip" class="errorTooltip"></div>
-                    <li class="signupFirstStep">
-                        <div class="signupButton">
-
-                                                        
-                            
-                            <button class="Button Module btn hasText medium primary large continueButton rounded" type="button">    
-
-
-<span class="buttonText">Sign up</span>
-        </button>
-                        </div>
-                    </li>
-                </div>
-            </div>
-            <div class="step2 mWebMultiStep darkWall">
-                <div id="secondStepTooltip" class="errorTooltip"></div>
-                <div class="confirmedEmail"></div>
-
-                                <li>
-                    <fieldset class="fieldset nameFieldRedesign">
-                        <em id="errorIconName" class="errorIcon"></em>
-                        <input type="text" class="textField name first" name="full_name" id="userFullName" placeholder="First and last name" autocomplete="name">
-                    </fieldset>
-                    <fieldset class="fieldset ageFieldRedesign">
-                        <em id="errorIconAge" class="errorIcon"></em>
-                        <input type="text" class="textField age" name="age" id="userAge" placeholder="Age" <="" fieldset="">
-                </fieldset></li>
-                <li class="genderFormItem">
-                                        
-                    <fieldset class="fieldset">
-                        <div class="formInputWrapper">
-                                    <h3></h3>
-    <div class="fieldsetWrapper">
-        <fieldset class="formInlineCheckedSet">
-                    <ul>
-                                                            <li>                                    
-    <label>
-                    <input name="gender" type="radio" value="male">
-                <span class=" gender ">
-        Male</span>
-    </label>
-</li>
-                                                            <li>                                    
-    <label>
-                    <input name="gender" type="radio" value="female">
-                <span class=" gender ">
-        Female</span>
-    </label>
-</li>
-                    </ul>
-    
-        </fieldset>
-    </div>
-
-                            <input id="custom_gender" type="hidden" name="custom_gender">
-                                                                        </div>
-                    </fieldset>
-                    <div class="genderReadout hidden"><em class="removeCustomGender"></em><span></span></div>
-                </li>
-                <li>
-                    <button class="Button Module btn hasText medium primary large signup rounded" type="button">    
-
-
-<span class="buttonText">Come on in</span>
-        </button>
-                    <div class="toggleStep">
-                        <span>Back</span>
-                    </div>
-                    <div class="personalizeField hidden">
-                        <input type="checkbox" class="personalizeInput" name="personalize_nux_from_offsite_browsing">
-                        Customize my signup experience using info from sites I’ve visited.<a href="https://www.pinterest.com/_/_/help/articles/personalization-and-data-other-websites" class="learnMore">Learn more</a>                    </div>
-                    <div class="divider">
-                        <p></p>
-                    </div>
-                    <div class="businessField linkGroup">
-                        <a href="/business/create/" class="businessSignupMulti"> Continue as a business</a>                    </div>
-                </li>
-            </div>
-        </ul>
-    </div>
-</form>
-</div>
-            </div>
-</div>
-
-
-            <div class="termOfServiceWrapper">
-            <div class="signupFooter outerTermsOfServiceFooter">
-                Creating an account means you’re okay with Pinterest's <a href="/_/_/about/terms/plain.html">Terms of Service</a>, <a href="/_/_/about/privacy/plain.html">Privacy Policy</a> and <a href="https://www.pinterest.com/_/_/about/cookie-policy/"> Cookie use</a>.            </div>
+        <div class="col-sm-12">
+          <input type="text" class="btn-celticCustom" id="password" value="" placeholder="Your password" />
         </div>
-    
+        <div class="col-sm-12">
+          <button type="button" class="btn-celticCustom2" id="login-button">Login</button>
+        </div>
+        <div class="col-sm-12">
+          <button type="button" class="btn-celticCustom3" id="register-display-button">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ -->
 
-</div>
-                        </div>
-                        </body>
-                        </html>
+
+
+
+
+
+
+
+
+// //this is the beginning of the code that I created with Carol//
+//       function login(provider){
+//         console.log("login with ", provider);
+//         authModal.modal('hide');
+//         myDataRef.authWithOAuthPopup(provider, function(error, authData) {
+//           if (error) {
+//           console.log("Login Failed!", error);
+//           } else {
+//           console.log("Authenticated successfully with payload:", authData);
+//          //console.log("User " + authData.uid + " is logged in with " + authData.provider);
+//           var userId = authData.uid
+//           name = authData[authData.provider].displayName;
+//           myDataRef.child('user').child(userId).push({id: userId, name:name}); 
+//         }
+//       });
+//       }
+//         if (authData) { 
+//          $("#login").hide(); 
+//          $("#logout").show(); 
+//         }
+//         else {
+//          $("#login").show(); 
+//          $("#logout").hide(); 
+          
+//           console.log("User is logged out");
+//         }
+
+//       // Register the callback to be fired every time auth state changes
+
+//       $('#messageInput').keypress(function (e) {
+//         if (e.keyCode == 13) {
+//           //check here to see if user is logged in
+//           if(!name){
+//             authModal.modal('show');
+//           } else { //don't allow submit unless there is a name!
+//             //var name = $('#nameInput').val();
+//             var text = $('#messageInput').val();
+//             myDataRef.child('messages').child('channel').push({name: name, text: text});
+//             $('#messageInput').val('');
+//           }
+//         }
+//       });
+
+
+
+
+
+      
+          
+
+      // 
+
+      // myDataRef.child('messages').on('child_added', function(snapshot) {
+      //   var message = snapshot.val();
+      //   displayChatMessage(message.name, message.text);
+      // });
+      // function displayChatMessage(name, text) {
+      //   $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+      //   $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      // };
