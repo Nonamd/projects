@@ -1,0 +1,59 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300; 
+  margin: 0;
+  padding: 0;
+}
+h1, h2 {
+  font-family: 'Bad Script', cursive;
+  margin: 0;
+  font-weight: normal;
+}
+h1 {
+  font-size: 75px;
+}
+header, 
+section, 
+footer {
+  padding: 100px 150px
+}
+.loves,
+footer {
+  text-align: center;
+}
+p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+
+/* PAGE HEADER - heading and nav
+-----------------------------------------*/
+header, 
+nav {
+  background: #CECCCC;
+}
+
+
+/* LOVES - things I love 
+-----------------------------------------*/
+.loves {
+  background: #9D6381;
+}
+
+
+/* FOOTER - contact info
+-----------------------------------------*/
+footer {
+  background: #0F110C;
+}
+
+

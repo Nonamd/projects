@@ -39,6 +39,7 @@ nav a:hover {
 
 .main-chat-login{ 
 	background-image: url('http://scottishjerk.com/wp-content/uploads/2013/05/isle-of-harris-scotland-300x199.jpg');
+	background-size: cover;
     background-size: 99% 99%;
     background-position: center;
  	margin-top: 0px;
@@ -141,6 +142,12 @@ nav a:hover {
 	font-family:'Nanum Gothic', Helvetica, Verdana !important;
 }
 
+.RegisterButton{
+	background-color: #C0CED7 !important;
+	color: #050900 !important;
+	border-radius: 4px;
+}
+
 .btn-channel{
 	text-align: left; !important;
 	text-indent: 10px !important;
@@ -180,6 +187,7 @@ nav a:hover {
 	margin-bottom: 0px !important;
 	padding-top: 10px !important;
 	padding-bottom: 0px !important;
+	margin-right: 0px;
 }
 
 .jumbotronwidth

@@ -24,7 +24,7 @@
 <body>
   <NAV>
     <a href="English">English</a>
-    <a href="http://learngaelic.scot/dictionary/index.jsp?abairt=Type%20here&slang=both&wholeword=false">Facal-faire</a>
+    <a href="http://learngaelic.scot/dictionary/index.jsp?abairt=Type%20here&slang=both&wholeword=false" target='_blank'>Faclair</a>
     <a href="Cuideachas">Cuideachas</a>
     <a href="Neach-aithne">Neach-aithne</a>
   </NAV>
@@ -120,8 +120,8 @@
           </div>
         
           <input class="btn btn btn-success" name="commit" type="button" id="login-button" value="Sign in">
-          <button type="button" id="LoginRegisterButton">Register</button>
-          <button type="button" id="LoginCancel">Cancel</button>
+          <button class="RegisterButton" type="button" id="LoginRegisterButton">Register</button>
+          <button class="RegisterButton" type="button" id="LoginCancel">Cancel</button>
         </div>
       </div>
 
@@ -140,8 +140,8 @@
               <input type="text" class="btn-celticCustom" id="register-password" value="" placeholder="Facal-faire" />
             </div>
             <div class="col-sm-12">
-              <label id="PhotoUploadLabel"></i>Add Your Image by Selecting the button below:</label>
-              <input i class="fa fa-picture-o" id="PhotoUpload" type="file" id="photo"/>
+              <label id="PhotoUploadLabel"><i class="fa fa-picture-o"></i>Add Your Image by Selecting the button below:</label>
+              <input id="PhotoUpload" type="file"/>
             </div>
             <div class="col-sm-12">
               <button type="button" class="btn-celticCustom2" id="register-button">Register</button>
@@ -316,7 +316,7 @@
               console.log("Error creating user:", error);
             } else {
               console.log("Successfully created user account with uid:", userData.uid);
-              var photoinput = document.getElementById('photo');
+              var photoinput = document.getElementById('PhotoUpload');
               var f = photoinput.files[0];
               var reader = new FileReader();
               reader.onload = (function(theFile) {
@@ -336,6 +336,7 @@
                       console.log("Login Failed!", error);
                     } else {
                       console.log("Authenticated successfully with payload:", authData);
+                      name=registerName;
                       $("#mainDisplayLogin").hide();
                       $("#mainDisplayMessages").show();
                     }
@@ -359,9 +360,14 @@
               console.log("Login Failed!", error);
             } else {
               console.log("Authenticated successfully with payload:", authData);
+              // console.log (authData.uid);
               myDataRef.child('user').child(authData.uid).once("value", function(snapshot) {
                 var user = snapshot.val();
+                console.log('The users info', user);
+
                 for (var key in user) {
+                  console.log('the users id is?', user[key]);
+                  name=user[key].name;
                   $("#displayname").html(user[key].name);
                   document.getElementById("displayphoto").src = user[key].photo;
                 } 
@@ -374,9 +380,10 @@
 
         $('#messageInput').keypress(function (e) {
           if (e.keyCode == 13) {
-            alert(name);
+            // alert(name);
             //check here to see if user is logged in
             if(!name){
+              console.log('error place');
               //authModal.modal('show');
             } else { //don't allow submit unless there is a name!
               //var name = $('#nameInput').val();
@@ -417,16 +424,18 @@
             console.log("Login Failed!", error);
           } else {
             console.log("Authenticated successfully with payload:", authData);
-            console.log(authData.facebook.cachedUserProfile.picture.data.url);
+            //console.log(authData.provider.cachedUserProfile.picture.data.url);
             //console.log("User " + authData.uid + " is logged in with " + authData.provider);
             var userId = authData.uid;
             name = authData[authData.provider].displayName;
             myDataRef.child('user').child(userId).once("value", function(snapshot) {
-              var ifExists = snapshot.exist(); //a firebase function
+              data = snapshot.val();
+              console.log(data);
+              var ifExists = snapshot.exists(); //a firebase function
               if (ifExists){
                 console.log ('user is already in the system');
               } else{
-                myDataRef.child('user').child(userID).push({id: userId, name:name}); 
+                myDataRef.child('user').child(userId).push({id: userId, name:name}); 
               }
               $("#mainDisplayLogin").hide();
               $("#mainDisplayMessages").show();

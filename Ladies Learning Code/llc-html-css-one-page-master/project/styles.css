@@ -1,0 +1,129 @@
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* PAGE HEADER - heading and nav
+-----------------------------------------*/
+body{
+	font-family: 'Montserrat', sans-serif;
+	/*background-color: #F5F5F5;*/
+	background: 'images/swirl.png';
+	background: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;	
+	font-weight: 300;
+	margin: 0;
+  	padding: 0;
+	} 
+
+/*This is for my nav bar styling*/
+nav a {
+  background: #5F8B27;
+  color: #4E3A13;
+  padding: 15px;
+  margin: 10px;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 4px; /* adds rounded corners */
+}
+
+nav a:hover {
+  background: #F7F4B2;
+  color: #4E3A13;
+  border-radius: 4px; /* adds rounded corners */
+}
+
+nav{
+	text-align: right;
+	position: fixed;
+  	top: 0;
+  	left: 0;
+  	width: 100%; 
+}
+
+h1, h2{
+	font-family: 'Montserrat', sans-serif;
+	margin: 0;
+	font-weight: normal;
+}
+
+h1{
+	font-size: 50px;
+}
+
+strong a {
+  color: #9D6381;
+}
+
+p {
+  	font-size: 18px;
+  	line-height: 1.5; /* adjusts space between the lines */
+  	color: #4E3A13;
+}
+
+#tagline{
+	font-style: italic;
+}
+
+
+header, section, footer {
+  	padding: 100px 150px;
+}
+
+.BusinessServices, 
+footer {
+  	text-align: center;
+}
+
+/* PAGE HEADER - heading and nav
+-----------------------------------------*/
+header, 
+nav {
+  	background: #EEF9C7;
+}
+
+header h1 {
+  	font-size: 50px;
+  	color: #931B22;
+  	overflow: hidden;
+}
+
+header h2 {
+  	font-size: 30px;
+}
+
+.Profile-img {
+  float: left;
+  margin-top: 0px;
+  margin-right: 20px;
+  width: 33%;
+  border-radius: 3%;
+}
+
+}
+
+/*Styling for our About Section*/
+.About{
+	/*background: #F7D6E0;*/
+	background: rgba(244,244,244,0 .5);
+}
+
+.BusinessServices{
+	background: #8C697A;
+}
+
+/* FOOTER - contact info
+-----------------------------------------*/
+footer {
+  /*background-color:rgba(255,0,0,.3);*/
+  /*background: rgba(244, 244, 0 .3);*/
+  background-color: #931B22;
+}
+
+
