@@ -93,27 +93,27 @@
 
       <div class="main-chat-register" style="display: none;">
         <div class="container">
-          <h1>Do I Need This?</h1>
+          <h1 class="RegisterHeader">Cl&#224radh</h1>
 
           <div class="row">
             <div class="col-sm-12">
-                <input type="text" class="btn-celticCustom" id="register-name" value="" placeholder="Your Name" />
+                <input type="text" class="btn-celticCustom" id="register-name" value="" placeholder="Ainm" />
             </div>
             <div class="col-sm-12">
-                <input type="text" class="btn-block" id="register-email" value="" placeholder="Your e-mail address" />
+                <input type="text" class="btn-celticCustom" id="register-email" value="" placeholder="Post-dealain" />
             </div>
             <div class="col-sm-12">
-              <input type="text" class="btn-block" id="register-password" value="" placeholder="Your password" />
+              <input type="text" class="btn-celticCustom" id="register-password" value="" placeholder="Facal-faire" />
             </div>
             <div class="col-sm-12">
-              <label>Photo</label>
-              <input type="file" id="photo" />
+              <label id="PhotoUploadLabel"></i>Add Your Image Here</label>
+              <input i class="fa fa-picture-o" id="PhotoUpload" type="file" id="photo"/>
             </div>
             <div class="col-sm-12">
-              <button type="button" class="btn btn-block btn-primary" id="register-button">Register</button>
+              <button type="button" class="btn-celticCustom2" id="register-button">Register</button>
             </div>
             <div class="col-sm-12">
-              <button type="button" class="btn btn-block btn-danger" id="login-window-button">Login</button>
+              <button type="button" class="btn-celticCustom3" id="login-window-button">Login</button>
             </div>
           </div>
         </div>
@@ -404,7 +404,6 @@
       function displayChatMessage(name, text) {
         $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
       } 
-
 
     </script>
   </body>
