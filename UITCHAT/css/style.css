@@ -3,6 +3,29 @@
 /*Button Naming Convention*/
 /*Variable Naming Convention*/
 
+nav a {
+  padding: 15px; /* one value adds same amount of padding on all sides */
+  display: inline-block; /* changes links from default inline to add padding properly */
+  text-transform: uppercase; /* changes letters to uppercase */
+  text-decoration: none; /* removes underline */
+  color: #09347C !important;
+}
+
+nav {
+  text-align: right;
+  color: #09347C !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; 
+}
+
+nav a:hover {
+  background: #628236;
+  color: #CECCCC;
+  border-radius: 4px;
+}
+
 .LoginOptionsRow{
 	background-image: url('http://scottishjerk.com/wp-content/uploads/2013/05/isle-of-harris-scotland-300x199.jpg');
     background-size: 99% 99%;
@@ -137,12 +160,12 @@
 }
 
 #PhotoUploadLabel {
-	color: #EEFCFC;
+	color: #EEFCFC !important;
 	margin-left: 33% !important;
 	}
 
 #PhotoUpload{
-	color: #EEFCFC;
+	color: #EEFCFC !important;
 	margin-left: 33% !important;
 	}
 
