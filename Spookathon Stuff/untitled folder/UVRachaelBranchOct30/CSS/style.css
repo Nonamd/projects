@@ -1,0 +1,265 @@
+/*Colour palette: sand colour= A5B06E,  mountain blue=556981, moss green=31667B, light stone grey= DCE4D3 */
+/*Typography settings=*/
+/*Button Naming Convention*/
+/*Variable Naming Convention*/
+
+nav a {
+  padding: 15px; /* one value adds same amount of padding on all sides */
+  display: inline-block; /* changes links from default inline to add padding properly */
+  text-transform: uppercase; /* changes letters to uppercase */
+  text-decoration: none; /* removes underline */
+  color: #09347C !important;
+}
+
+nav {
+  text-align: right;
+  color: #09347C !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; 
+}
+
+nav a:hover {
+  background: #628236;
+  color: #CECCCC;
+  border-radius: 4px;
+}
+
+.LoginOptionsRow{
+	background-image: url('http://scottishjerk.com/wp-content/uploads/2013/05/isle-of-harris-scotland-300x199.jpg');
+    background-size: 99% 99%;
+    background-position: center;
+ 	margin-top: 0px;
+ 	padding-top: 0px;
+    background-repeat: no-repeat;
+    background-color: #556981;
+
+}
+
+.main-chat-login{ 
+	background-image: url('http://scottishjerk.com/wp-content/uploads/2013/05/isle-of-harris-scotland-300x199.jpg');
+	background-size: cover;
+    background-size: 99% 99%;
+    background-position: center;
+ 	margin-top: 0px;
+ 	padding-top: 0px;
+    background-repeat: no-repeat;
+    background-color: #556981;
+}
+
+.main-chat-display{
+	display: none;
+ 	margin-top: 0px;
+ 	padding-top: 0px;
+    background-color: #DCE4D3;
+}
+.main-chat-register {
+	display: none;
+	background-image: url('http://scottishjerk.com/wp-content/uploads/2013/05/isle-of-harris-scotland-300x199.jpg');
+	background-size: 99% 99%;
+    background-position: center;
+ 	margin-top: 0px;
+ 	padding-top: 0px;
+    background-repeat: no-repeat;
+    background-color: #556981;
+}
+
+.visit{
+	background-color: #556981;
+	width:300px;
+    float:left; 
+	height: 435px;
+	color: #DFFDF3;
+	font-family:'Nanum Gothic', Helvetica, Verdana;
+	font-size: 150%;	
+	padding-top: 12px;
+}
+.InputBox{
+	width: 100%;
+	height: 40px !important;
+	vertical-align: bottom;
+	font color: #EDFBFB !important;	
+}
+.messages{
+	height: 390px;
+	overflow: auto;
+	border-color: #62B2B1;
+	font-family: 'Nanum Gothic', Helvetica, Verdana;
+}
+.modal {
+    position: relative !important;
+    margin-left: 30% !important;
+    right-padding: 100px;
+    margin-top: -400px !important;
+    background-color: transparent;
+    width: 50% !important;
+}
+.btn-warning {
+	border-color: #000000;
+	background-color: #246F6A;
+	font-family:'Nanum Gothic', Helvetica, Verdana;
+}
+
+.btn-celticCustom {
+	margin-left: 33% !important;
+	text-align: center !important;
+	/*float: left !important;*/
+	height: 40px !important;
+    width: 400px !important;
+    color: #000000 !important;
+	/*border-color: #EDFBFB !important;*/
+	/*box-shadow: 8px 2px 32px -1px #FFFFFF !important;*/
+	background-color: #EEFCFC !important;
+	font-family:'Nanum Gothic', Helvetica, Verdana !important;
+}
+
+.btn-celticCustom2 {
+	margin-left: 33% !important;
+	margin-bottom: 5px
+	text-align: center !important;
+	height: 40px !important;
+    width: 400px !important;
+    color: #050900 !important;
+    border-radius: 4px;
+	border-color: #EDFBFB !important;
+	box-shadow: 8px 2px 32px -1px #FFFFFF !important;
+	background-color: #31667B !important;
+	font-family:'Nanum Gothic', Helvetica, Verdana !important;
+}
+
+.btn-celticCustom3{
+	margin-left: 33% !important;
+	margin-bottom: 5px
+	text-align: center !important;
+	height: 40px !important;
+    width: 400px !important;
+	color: #050900 !important;
+	border-radius: 4px;
+	border-color: #EDFBFB !important;
+	box-shadow: 8px 2px 32px -1px #FFFFFF !important;
+	background-color: #97A8AB !important;
+	font-family:'Nanum Gothic', Helvetica, Verdana !important;
+}
+
+.RegisterButton{
+	background-color: #C0CED7 !important;
+	color: #050900 !important;
+	border-radius: 4px;
+}
+
+.btn-channel{
+	text-align: left; !important;
+	text-indent: 10px !important;
+	height: 34px !important;
+    width: 250px !important;
+	border-color: #EDFBFB !important;
+	border-radius: 15px/50px;
+    padding: 0px;
+    margin: 8px; 
+	box-shadow: 3px 3px 6px #FFFFFF !important;
+	background-color: #4F6E08 !important;
+	font-family:'Nanum Gothic', Helvetica, Verdana !important;
+}
+.green{
+	border-color: #000000;
+	background-color: #246F6A
+}
+
+#PhotoUploadLabel {
+	color: #EEFCFC !important;
+	margin-left: 33% !important;
+	}
+
+#PhotoUpload{
+	color: #EEFCFC !important;
+	margin-left: 33% !important;
+	}
+
+.jumbotron{
+	background-color: #A5B06E;
+	font-color: #050900;
+	text-align: center;
+	font-family: 'celticmd', Helvetica;
+	font-size: 390%;
+	height: 220px !important;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+	padding-top: 10px !important;
+	padding-bottom: 0px !important;
+	margin-right: 0px;
+}
+
+.jumbotronwidth
+{
+	max-width:100%;
+}
+
+.form-group{
+	display: inline-block;
+	width: 100%;
+
+}
+
+.btn-generate{
+	display: inline-block;
+	width: 100%;
+
+}
+
+.h1 {
+  font-family:'celticmd','gaelic', sans-serif;
+  font-color: #EBE9D2;
+  font-size:90%;
+}
+
+.RegisterHeader{
+  font-family:'Nanum Gothic', Helvetica, Verdana !important;
+  font-color: #EBE9D2;
+  font-size: 180%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.h2 {
+  font: 400 130px/0.8 'Nanum Gothic', Helvetica, Verdana;
+  font-color: #EBE9D2;
+  text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
+}
+
+.h3 {
+  font-family: 'Nanum Gothic', Helvetica, Verdana;
+  color: #09347C;
+  font-size:500%;
+  text-align: center;
+  text-shadow: 4px 4px 3px rgba(0,0,0,0.1)
+}
+.LoginFormHeader{
+  font-family: 'Nanum Gothic', Helvetica, Verdana;
+  color: #09347C;
+  font-size: 250%;
+  text-align: center;
+  text-shadow: 4px 4px 3px rgba(0,0,0,0.1)	
+}
+
+.questions {
+	padding-top: 30px;
+	padding-bottom: 20px;
+
+}
+
+.messages {
+	padding-top: 40px;
+	background-color: blue;
+	text-align: center;
+}
+
+.left {
+	float: left;
+}
+
+.tierOneName {
+	display: inline-block;
+	text-align: center
+	margin: 15px;	
+}

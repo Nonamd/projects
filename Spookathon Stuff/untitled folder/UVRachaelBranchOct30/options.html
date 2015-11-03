@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <!--FIREBASE -->
+  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+  <!-- JQUERY -->    
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+
+  <!-- BOOTSTRAP -->
+  <!-- links to include BOOTSTRAP to your project-->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-modal.min.js"></script>
+  <!--Fontawesome info -->  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!--CSS -->
+  <link rel='stylesheet' type='text/css' href='css/style.css'>
+  </head>
+
+  <body>
+    <p id="tierOneName">Hey NAME, I know how creepy you've been being to my friend.</p> 
+    <p id="tierOneJob">I saw you walking into your work at JOB yesterday so you should cut it out before I make it my business to teach you a lesson.</p>
+
+  <button onclick="myFunction()">Try it</button>
+
+  <script>
+function myFunction() {
+    var str = document.getElementById("tierOneName,tierOneJob").innerHTML;
+
+  var res = str.replace("NAME", "Bob");
+  document.getElementById("tierOneName").innerHTML = res;
+
+  var res = str.replace("JOB", "YMCA");
+  document.getElementById("tierOneJob").innerHTML = res;
+}
+</script>
+</body>
+</html>
+
+  

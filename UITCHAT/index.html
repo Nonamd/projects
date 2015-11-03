@@ -29,11 +29,36 @@
     <a href="Neach-aithne">Neach-aithne</a>
   </NAV>
 
+  <!-- Start modal -->
+  <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- End Modal -->
+
 <!-- <section class="English">
   <h1>Cabadaich - The Chat for Gaels</h1>
   <h2>For Beginners</h2>
   <p>Cabadaich means to chat, and now Gaels the world over have a place to chat in Gaelic without all the interference of English prevalent in many social networking sites.  If you are a beginner, it may seem daunting to chat in Gaelic because you are worried that your spelling and grammar are not good enough.  Have no fear, you are in the Gaelic community and there are lots of other Gaels ready to help.</p>
-
   <p>Please check out the handy tools to help you get better at writing and reading - ie chatting - in Gaelic.  There is the Facal-faire or dictionary that will link you right to the LearnGaelic.net dictionary, and the Cuideachas section provides some handy sayings that are common for quick retorts.</p>
   
   <h2>For Intermediates</h2>
@@ -42,15 +67,12 @@
   <h2>For Advanced</h2>
   <p>You are a resource for the learners and intermediates, but you also have lots to add to your language and cultural expression toolkit.  Consider adding some original Gaelic poetry or song to the channels for Song and Music or Stories and Poetry.  Have fun.</p>
 </section>
-
 <section class="Cuideachas">
   <p> &#9830 Cuimseach math (Pretty good)</p>
   <p> &#9830 droch-naidheachd (bad news)</p>
   <p> &#9830 c&#242il &#242s &#249r? (anything new?)</p>
   <p> &#9830 's math do naidheachd (you’ve got good news)</p>
-
 </section>
-
 <section class="Neach-aithne">
   <a href="mailto:gaelicapptesters@gmail.com">gaelicapptesters@gmail.com</a>
 </section> -->
@@ -94,7 +116,7 @@
             <div class="col-xs-4">
               <a id="email-sign-in">
                 <i id="email-signin-btn" class="fa fa-envelope-o fa-5x"></i>
-                <p>email</p>
+                <p>Post-dealain</p>
               </a>
             </div>
           </div>
@@ -102,32 +124,32 @@
 
         <div class="LoginEmailWindow" style="display: none;">
           <div class="form-group">
-            <label class="name" for="user_password">Name</label>
-            <input class="form-control" id="user_name" name="user[name]" placeholder="Enter Name" type="text">
+            <label class="name" for="user_password">Ainm</label>
+            <input class="form-control" id="user_name" name="user[name]" placeholder="Cuir a-steach d' ainm" type="text">
           </div>
 
           <div class="form-group">
             <div class="row"> 
               <p>Or, Use your email &amp; password</p>
-            <label class="email optional control-label" for="user_email">Email</label>
-            <input autofocus="autofocus" class="string email optional form-control" id="user_email" name="user[email]" placeholder="Enter email" type="email" value="">
+            <label class="email optional control-label" for="user_email">Post-dealain</label>
+            <input autofocus="autofocus" class="string email optional form-control" id="user_email" name="user[email]" placeholder="Cuir a-steach post-dealain agad" type="email" value="">
           </div>
         </div>
 
           <div class="form-group">
-            <label class="password optional control-label" for="user_password">Password</label>
-            <input class="form-control" id="user_password" name="user[password]" placeholder="Enter password" type="password">
+            <label class="password optional control-label" for="user_password">Facal-faire</label>
+            <input class="form-control" id="user_password" name="user[password]" placeholder="Cuir a-steach facal-faire agad" type="password">
           </div>
         
-          <input class="btn btn btn-success" name="commit" type="button" id="login-button" value="Sign in">
-          <button class="RegisterButton" type="button" id="LoginRegisterButton">Register</button>
-          <button class="RegisterButton" type="button" id="LoginCancel">Cancel</button>
+          <input class="btn btn btn-success" name="commit" type="button" id="login-button" value="Gabh a-steach">
+          <button class="RegisterButton" type="button" id="LoginRegisterButton">Cl&#224raich</button>
+          <button class="RegisterButton" type="button" id="LoginCancel">Cuir dheth</button>
         </div>
       </div>
 
       <div class="main-chat-register" style="display: none;">
         <div class="container">
-          <h1 class="RegisterHeader">Cl&#224radh:</h1>
+          <h1 class="RegisterHeader">Cl&#224raich:</h1>
 
           <div class="row">
             <div class="col-sm-12">
@@ -144,10 +166,10 @@
               <input id="PhotoUpload" type="file"/>
             </div>
             <div class="col-sm-12">
-              <button type="button" class="btn-celticCustom2" id="register-button">Register</button>
+              <button type="button" class="btn-celticCustom2" id="register-button">Cl&#224raich</button>
             </div>
             <div class="col-sm-12">
-              <button type="button" class="btn-celticCustom3" id="login-window-button">Login</button>
+              <button type="button" class="btn-celticCustom3" id="login-window-button">Gabh a-steach</button>
             </div>
           </div>
         </div>
@@ -185,7 +207,7 @@
         </div>
           
       </div>
-      <div><a href="javascript:logout();">Logout</a></div>
+      <div><a href="javascript:logout();">Cl&#224raidh a-mach</a></div>
     </div>
   </div> 
 
@@ -240,26 +262,19 @@
 
 
 
-
-
-
-
     <script>
       var myDataRef = new Firebase('https://cabadaich.firebaseio.com/');
       var string = $("#robstring").html();
       var name= "";
       var authModal = $('#auth-modal').modal( {show: false}); //this cluase hides the modal unless
       var curchannel= "News";
-
       //the user tries to enter a message without being logged in//
       //check to see if the user is logged in using getAuth fx
-
       // Create a callback which logs the current auth state
       var authData = myDataRef.getAuth();
       if (authData) {
         // alert("User " + authData.uid + " is logged in with " + authData.provider);
         console.log("User " + authData.uid + " is logged in with " + authData.provider);
-
         //@TODO: get logged user name
         if (authData.provider == "password"){
           myDataRef.child('user').child(authData.uid).once('value', function(snapshot){
@@ -276,34 +291,26 @@
           $("#mainDisplayLogin").hide();
           $("#mainDisplayMessages").show();
         }
-
       } else {
         console.log("User is logged out");
       }
-
       $(document).ready(function() {
-
         $("#email-sign-in").click(function(){
           $(".LoginOptionWindow").hide();
           $(".LoginEmailWindow").show();  
         });
-
         $("#LoginCancel").click(function(){
           $(".LoginEmailWindow").hide();  
           $(".LoginOptionWindow").show();
         });
-
-
         $("#LoginRegisterButton").click(function() {
           $(".LoginEmailWindow").hide();
           $(".main-chat-register").show();
         });
-
         $("#login-window-button").click(function() {
           $(".main-chat-register").hide();
           $(".LoginEmailWindow").show();
         });
-
         $("#register-button").click(function() {
           var registerName = $("#register-name").val();
           var email = $("#register-email").val();
@@ -348,7 +355,6 @@
             }
           });
         });
-
         $("#login-button").click(function() {
           var email = $("#user_email").val();
           var password = $("#user_password").val();
@@ -364,7 +370,6 @@
               myDataRef.child('user').child(authData.uid).once("value", function(snapshot) {
                 var user = snapshot.val();
                 console.log('The users info', user);
-
                 for (var key in user) {
                   console.log('the users id is?', user[key]);
                   name=user[key].name;
@@ -377,7 +382,6 @@
             }
           });
         });
-
         $('#messageInput').keypress(function (e) {
           if (e.keyCode == 13) {
             // alert(name);
@@ -393,13 +397,11 @@
             }
           }
         });
-
         myDataRef.child('messages').child(curchannel).on('child_added', function(snapshot) {
           var message = snapshot.val();
           displayChatMessage(message.name, message.text);
         });
       });
-
       function channel(TheChannel) {
         curchannel = TheChannel;
         $('#messagesDiv').html('');
@@ -409,13 +411,11 @@
           displayChatMessage(message.name, message.text);
         });
       }
-
       function logout() {
         console.log("logging out");
         myDataRef.unauth();
         location.reload();
       }
-
       function login(provider) {
         console.log("login with ", provider);
         authModal.modal('hide');
@@ -443,11 +443,9 @@
           }
         });
       }
-
       function displayChatMessage(name, text) {
-        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+        $('<div/>').text(text).prepend($('<em/>').text(name+'-->    ')).appendTo($('#messagesDiv'));
       } 
-
     </script>
   </body>
 </html>

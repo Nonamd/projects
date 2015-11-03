@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+
+  <!-- Twilio -->
+  <script type="text/javascript"
+src="//static.twilio.com/libs/twiliojs/1.2/twilio.min.js"></script>
+  <!--FIREBASE -->
+  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+  <!-- JQUERY -->    
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+
+  <!-- BOOTSTRAP -->
+  <!-- links to include BOOTSTRAP to your project-->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-modal.min.js"></script>
+  <!--Fontawesome info -->  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!--CSS -->
+  <link rel='stylesheet' type='text/css' href='css/style.css'>
+    
+</head>
+ 
+<body>
+
+
+  <div class="container">
+  <div class="row head" style="background: #f0f;min-height: 300px;">
+      </div>
+    <div class="col-sm-2 left">
+    </div>
+    <div class="col-sm-8 questions">
+      <div class="form-group">
+            <label class="name">First Name</label>
+            <input class="form-control" id="user_name" name="user[name]" placeholder="Enter First Name" type="text">
+          </div>
+
+      <div class="form-group">
+            <label class="work">Place of Work</label>
+            <input class="form-control" id="user_work" name="user[work]" placeholder="Enter Place of Work" type="text">
+          </div>
+
+          <div class="form-group">
+            <label class="phone">Phone Number</label>
+            <input class="form-control" id="user_phone" name="user[phone]" placeholder="Enter Phone Number" type="text">
+          </div>
+
+          <button class="Generate">Try it</button>
+    </div>
+     <div class="col-sm-2 right">
+    </div>
+  
+    
+
+<!-- this will be the div that will show the compiled messages -->
+   
+    <div class="row" id="mainDisplayMessages">
+
+    
+      <div class="col-sm-12 messages">
+        <button id="tierOneName" class="tierOneName" onclick="send('tierOneName')">Hey <span class='button-name'>NAME</span>, I know how creepy you've been being to my friend.</button> 
+<p></p>
+        <button id="optionTwo" onclick="send('optionTwo')">Hey <span class='button-name'>NAME</span>, I know how creepy you've been being to my friend.</p> 
+        <p id="tierWork" class="tierWork">I am going to come find you at <span class='button-work'>WORK</span>.</p></button>
+
+        <p id="tierOneThree">Hey <span class='button-name'>NAME</span>, I know how creepy you've been being to my friend.</p> 
+      </div>
+    </div>
+
+    <div class="row foot" style="background: #f0f;min-height: 150px;">
+      </div>
+  </div> 
+        
+
+    <script>
+      document.getElementById('mainDisplayMessages').style.visibility = "hidden";
+      
+          $('.Generate').click(function(){
+            document.getElementById('mainDisplayMessages').style.visibility = "visible";
+           $('.button-name').html(
+            $('#user_name').val()
+          ); 
+
+          })
+
+          $('.tierOneName').click(function(){
+            var html=$(this).html();
+            alert(html);
+          })
+
+          $('.Generate').click(function(){
+           $('.button-work').html(
+            $('#user_work').val()
+          ); 
+
+          })
+
+          $('.tierWork').click(function(){
+            var html=$(this).html();
+            alert(html);
+          })
+
+          // Twilio Credentials 
+var accountSid = 'AC9db1436cc0bed10c7c0f9b4c89652f0c'; 
+var authToken = '[853d5e71396beec84c879e7ccd19e690]'; 
+ 
+//require the Twilio module and create a REST client 
+var client = require('twilio')(accountSid, authToken); 
+ 
+client.messages.create({ 
+    to: "+19029790036", 
+    from: "+14158141829", 
+    body: "Hey Jenny! Good luck on the bar exam!", 
+    mediaUrl: "http://farm2.static.flickr.com/1075/1404618563_3ed9a44a3a.jpg",  
+}, function(err, message) { 
+    console.log(message.sid); 
+});
+          
+  //         var user_name=$('#user_name').val();
+  //         console.log(user_name);
+  //         console.log("this is running");
+  //   var str = document.getElementById("tierOneName").innerHTML;
+  //   var res = str.replace("NAME", document.getElementById('user_name').value);
+  // document.getElementById("tierOneName").innerHTML = res;
+
+  // var str = document.getElementById("optionTwo").innerHTML;
+  //   var res = str.replace("NAME", document.getElementById('user_name').value);
+  // document.getElementById("optionTwo").innerHTML = res;
+
+  // var str = document.getElementById("tierWork").innerHTML;
+  // var res = str.replace("WORK", document.getElementById('user_work').value);
+  // document.getElementById("tierWork").innerHTML = res;
+
+  // var str = document.getElementById("tierOneThree").innerHTML;
+  //   var res = str.replace("NAME", document.getElementById('user_name').value);
+  // document.getElementById("tierOneThree").innerHTML = res;
+//}
+
+  // function send (option) {
+  //   console.log(option);
+  //   if ('tierOneName'){
+  //     var msg = document.getElementById("tierOneName").innerHTML;
+  //     console.log(msg);
+  //   }
+
+  //   if ('optionTwo'){
+  //     var msg = document.getElementById("optionTwo").innerHTML;
+  //     console.log(msg);
+
+  //   }
+  //   if (''){
+
+  //   }
+  //   // body...
+  // }
+
+  // function displayChatMessage(name, text, image) {
+  // $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+    </script>
+  </body>
+</html>
