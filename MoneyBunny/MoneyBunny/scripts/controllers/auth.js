@@ -2,6 +2,10 @@
 
 app.controller('AuthController', function($scope, $location, Auth) {
 
+	if(Auth.user.provider) {
+    $location.path('/');
+  }
+
 	$scope.register = function(user) {
 		Auth.register(user).then(function() {
 			console.log("Register successfully!");

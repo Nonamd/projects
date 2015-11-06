@@ -12,14 +12,14 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
 		user:{},
 
 		createProfile: function(uid, user) {
-			var profile ={
+			var profile = {
 				name: user.name,
 				email: user.email,
-				gravatar: get_gratavar(user.email 40)
+				gravatar: get_gravatar(user.email, 40)
 			};
 
 			var profileRef = $firebase(ref.child('profile'));
-			return profileRef.$set(uid profile);
+			return profileRef.$set(uid, profile);
 		},
 
 		login: function(user) {
@@ -27,6 +27,7 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
 				{email: user.email, password: user.password}
 				);
 		},
+
 		register: function(user) {
 			return auth.$createUser({email: user.email, password: user.password})
 				.then(function() {
@@ -63,8 +64,9 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
 		}
 	});
 
-	function get_gravatar(email, size) {
-		email = email.toLowerCase();
+  function get_gravatar(email, size) {
+
+      email = email.toLowerCase();
 
       var MD5 = function(s) {
         function L(k, d) {
@@ -281,6 +283,7 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
           W = K(W, v);
           V = K(V, g)
         }
+
         var i = B(Y) + B(X) + B(W) + B(V);
         return i.toLowerCase()
       };
@@ -288,7 +291,7 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
       var size = size || 80;
 
       return 'https://www.gravatar.com/avatar/' + MD5(email) + '.jpg?d=identicon';
-	};
+    }
 
 	return Auth;
 });
