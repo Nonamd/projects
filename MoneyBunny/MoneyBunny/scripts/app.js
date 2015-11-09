@@ -5,13 +5,16 @@ var app = angular
     'ngAnimate',    
     'ngResource',
     'ngRoute',    
-    'firebase'
+    'firebase',
+    'toaster',
+    'angularMoment'
   ])
   .constant('FURL', 'https://moneybunny.firebaseio.com/')  
   .config(function ($routeProvider) {
     $routeProvider      
       .when('/', {
-        templateUrl: 'views/main.html',     
+        templateUrl: 'views/browse.html', 
+        controller: 'BrowseController'    
       })
 
       .when('/login', {
@@ -24,19 +27,9 @@ var app = angular
         controller: 'AuthController'
       }) 
 
-      .when('/post', {
-        templateUrl: 'views/post.html',
-        controller: 'TaskController'
-      })
-
-      .when('/edit/:taskId', {
-        templateUrl: 'views/edit.html',
-        controller: 'TaskController'
-      })
-
-      .when('/browse', {
+      .when('/browse/:taskId', {
         templateUrl: 'views/browse.html',
-        controller: 'TaskController'     
+        controller: 'BrowseController'     
       })
 
       .otherwise({

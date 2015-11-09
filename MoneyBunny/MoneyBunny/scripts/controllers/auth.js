@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('AuthController', function($scope, $location, Auth) {
+app.controller('AuthController', function($scope, $location, Auth, toaster) {
 
 	if(Auth.user.provider) {
     $location.path('/');
@@ -8,20 +8,24 @@ app.controller('AuthController', function($scope, $location, Auth) {
 
 	$scope.register = function(user) {
 		Auth.register(user).then(function() {
-			console.log("Register successfully!");
+			toaster.pop("success", "Registered Successfully!");
+			// console.log("Register successfully!");
 			$location.path('/');
 		}, function(err) {
-			console.log("Error...");
+			toaster.pop("error",'Oops, Something went wrong!');
+			// console.log("Error...");
 		});
 	};
 
 	$scope.login = function(user) {
 		Auth.login(user)
 		.then(function() {
-			console.log("Logged in successfully!");
+			toaster.pop("Logged in Successfully!");
+			// console.log("Logged in successfully!");
 			$location.path('/');
 		}, function(err) {
-			console.log("Error...");
+			toaster.pop("error",'Oops, Something went wrong!');
+			// console.log("Error...");
 		});
 	};
 
@@ -36,9 +40,12 @@ app.controller('AuthController', function($scope, $location, Auth) {
 			$scope.user.newpass = '';
 
 
-			console.log("Password changed successfully!");
+			toaster.pop("success", "Password Changed Successfully!");
+			// console.log("Password changed successfully!");
 		}, function(err) {
-			console.log("Error...");
+			toaster.pop("error",'Oops, Something went wrong!');
+			// console.log("Error...");
+
 		});
 	};
 
