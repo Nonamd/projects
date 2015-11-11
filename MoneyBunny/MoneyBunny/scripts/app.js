@@ -32,6 +32,16 @@ var app = angular
         controller: 'BrowseController'     
       })
 
+       .when('/dashboard', {
+        templateUrl: 'views/dashboard.html', 
+        controller: 'DashboardController',
+        resolve: {
+          currentAuth: function(Auth) {
+            return Auth.requireAuth();
+          }
+        }   
+      })
+
       .otherwise({
         redirectTo: '/'
       });

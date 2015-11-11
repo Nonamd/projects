@@ -22,6 +22,10 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
 			return profileRef.$set(uid, profile);
 		},
 
+    getProfile: function(uid) {
+      return $firebase(ref.child('profile').child(uid)).$asObject();
+    },
+
 		login: function(user) {
 			return auth.$authWithPassword(
 				{email: user.email, password: user.password}
@@ -48,8 +52,12 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
 
 		signedIn: function() {
 			return !!Auth.user.provider; 
-		}
-	};
+		},
+
+    requireAuth: function() {
+      return auth.$requireAuth();
+    }
+  };
 
 	auth.$onAuth(function(authData) {
 		if(authData) {

@@ -17,7 +17,32 @@ app.factory('Task', function(FURL, $firebase, Auth) {
 
 		createTask: function(task) {
 			task.datetime = Firebase.ServerValue.TIMESTAMP;
-			return tasks.$add(task);
+			return tasks.$add(task)
+			.then(function(newTask) {
+
+				var obj = {
+					taskId: newTask.key(),
+					type: true,
+					title: task.title
+				};
+				$firebase(ref.child('user_tasks').child(task.poster)).$push(obj);
+				return newTask;
+			});
+		},
+
+		createUserTasks: function(taskId) {
+			Task.getTask(taskId)
+			.$asObject()
+			.$loaded()
+			.then(function(task) {
+				var obj = {
+					taskId: taskId,
+					type: false,
+					title: task.title
+				};
+			return $firebase(ref.child('user_tasks').child(task.runner)).$push(obj);
+			});
+
 		},
 
 		editTask: function(task) {
@@ -36,8 +61,20 @@ app.factory('Task', function(FURL, $firebase, Auth) {
 
 		isOpen: function(task) {
 			return task.status === "open";
-		}		
+		},
 
+		completeTask: function(taskId) {
+			var t = this.getTask(taskId);
+			return t.$update({status: "completed"});
+		},
+
+		isAssignee: function(task) {
+			return (user &&user.uid === task.runner);
+		},		
+
+		isCompleted: function(task) {
+			return task.status ==="completed";
+		}		
 	};
 
 	return Task;
